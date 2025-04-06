@@ -5,8 +5,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Victor Ramos - Portfolio",
-  description: "Este é o portfolio de Victor Ramos",
+  title: "Victor Ramos - Portfólio",
+  description: "Este é o portfólio de Victor Ramos",
 };
 
 const sora = Sora({
