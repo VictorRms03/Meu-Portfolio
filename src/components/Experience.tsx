@@ -3,7 +3,7 @@ import ExperienceList from "./Experience/ExperienceList";
 export default function Experience() {
     return (
         
-        <section className="py-16 bg-black text-white">
+        <section id="experience" className="py-16 bg-black text-white scroll-mt-20">
 
             <div className="max-w-9/12 mx-auto flex justify-center">
 

@@ -6,24 +6,26 @@ export default function Header() {
         <header className="w-full px-6 py-4 bg-white shadow-md sticky top-0 z-50">
             <div className="max-w-9/12 mx-auto flex items-center justify-between">
 
-                <div className="flex items-center gap-3 text-xl font-bold text-black">
+                <Link href="#hero scroll={true}">
+                    <div className="flex items-center gap-3 text-xl font-bold text-black">
 
-                    <Image src="/images/Foto - Victor Ramos.jpg" 
-                        alt="Foto Victor Ramos" 
-                        width={40} 
-                        height={40} 
-                        className="rounded-full object-cover" 
-                    />
+                        <Image src="/images/Foto - Victor Ramos.jpg" 
+                            alt="Foto Victor Ramos" 
+                            width={40} 
+                            height={40} 
+                            className="rounded-full object-cover" 
+                        />
+                        
+                        Victor Ramos
                     
-                    Victor Ramos
-                
-                </div>
+                    </div>
+                </Link>
         
                 <nav className="hidden md:flex gap-6 text-black font-medium">
                     <Link href="#skills" scroll={true} className="hover:text-grey-800 transition">Habilidades</Link>
-                    <Link href="#projetos" scroll={true} className="hover:text-grey-800 transition">Experiências</Link>
-                    <Link href="#inicio" scroll={true} className="hover:text-grey-800 transition">Sobre mim</Link>
-                    <Link href="#inicio" scroll={true} className="hover:text-grey-800 transition">Projetos</Link>
+                    <Link href="#experience" scroll={true} className="hover:text-grey-800 transition">Experiências</Link>
+                    <Link href="#sobre" scroll={true} className="hover:text-grey-800 transition">Sobre mim</Link>
+                    <Link href="#projetos" scroll={true} className="hover:text-grey-800 transition">Projetos</Link>
                     <Link href="#contato" scroll={true} className="hover:text-grey-800 transition">Contato</Link>
                 </nav>
         

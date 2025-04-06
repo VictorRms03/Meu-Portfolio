@@ -1,6 +1,6 @@
 export default function Contato() {
     return (
-        <div>
+        <div id="contato">
             <h1>CONTATO</h1>
         </div>
     )

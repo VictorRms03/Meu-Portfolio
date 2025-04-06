@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Sobre() {
     return (
 
-        <section className="py-12">
+        <section id="sobre" className="py-12 scroll-mt-20">
 
             <div className="max-w-9/12 mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-12">
 

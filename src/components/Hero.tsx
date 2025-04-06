@@ -4,7 +4,7 @@ import HeroSocials from "./Hero/HeroSocials";
 export default function Hero() {
     return (
 
-        <section className="py-12">
+        <section id="hero" className="pt-24 py-12 scroll-mt-30">
 
             <div className="max-w-9/12 mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-12">
 
