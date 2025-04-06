@@ -20,7 +20,7 @@ export default function Hero() {
 
                 </div>
 
-                <div>
+                <div className="w-1/2">
 
                     <Image src="/images/devPicture.svg" alt="Ilustração de dev" width={600} height={600}/>
 

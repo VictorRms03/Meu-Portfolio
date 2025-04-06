@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={sora.className}>
+      <body className={sora.className + " scroll-smooth"}>
 
         <Header />
 

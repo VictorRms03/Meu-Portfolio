@@ -3,7 +3,7 @@ import SkillsList from "./Skills/SkillsList"
 export default function Skills() {
     return (
 
-        <section className="py-12">
+        <section id="skills" className="py-12">
 
             <div className="max-w-9/12 mx-auto flex justify-center">
 

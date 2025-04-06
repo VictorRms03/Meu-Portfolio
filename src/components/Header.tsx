@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Header() {
     return (
@@ -19,10 +20,11 @@ export default function Header() {
                 </div>
         
                 <nav className="hidden md:flex gap-6 text-black font-medium">
-                    <a href="#inicio" className="hover:text-grey-800 transition">Sobre mim</a>
-                    <a href="#sobre" className="hover:text-grey-800 transition">Habilidades</a>
-                    <a href="#projetos" className="hover:text-grey-800 transition">Experiências</a>
-                    <a href="#contato" className="hover:text-grey-800 transition">Contato</a>
+                    <Link href="#skills" scroll={true} className="hover:text-grey-800 transition">Habilidades</Link>
+                    <Link href="#projetos" scroll={true} className="hover:text-grey-800 transition">Experiências</Link>
+                    <Link href="#inicio" scroll={true} className="hover:text-grey-800 transition">Sobre mim</Link>
+                    <Link href="#inicio" scroll={true} className="hover:text-grey-800 transition">Projetos</Link>
+                    <Link href="#contato" scroll={true} className="hover:text-grey-800 transition">Contato</Link>
                 </nav>
         
                 <div className="hidden md:block">
