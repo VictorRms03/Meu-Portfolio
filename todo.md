@@ -6,7 +6,9 @@
 
 [ ] - Escrever 'Sobre Mim'
 
-[ ] - Desenvolver 'Meus Projetos'
+[ ] - Inserir imagens em 'Projetos'
+
+[ ] - Escrever Descrições em 'Projetos'
 
 [ ] - Desenvolver 'Contato'
 
