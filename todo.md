@@ -1,15 +1,15 @@
-[ ] - Fazer o cursor mudar ao passar o mouse em 'Currículo'
+[X] - Fazer o cursor mudar ao passar o mouse em 'Currículo'
 
-[ ] - Corrigir problema que não deixa eu aumentar as fontes
+[X] - Escrever Descrições de Experiências
 
-[ ] - Escrever Descrições de Experiências
+[X] - Escrever 'Sobre Mim'
 
-[ ] - Escrever 'Sobre Mim'
+[X] - Inserir imagem do Contrack em 'Projetos'
 
-[ ] - Inserir imagem do Contrack em 'Projetos'
+[X] - Escrever Descrições em 'Projetos'
 
-[ ] - Escrever Descrições em 'Projetos'
+[X] - Desenvolver 'Formações Academicas'
 
 [ ] - Desenvolver 'Contato'
 
-[ ] - Desenvolver 'Footer'
+[X] - Desenvolver 'Footer'
