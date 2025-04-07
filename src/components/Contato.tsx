@@ -4,7 +4,7 @@ import ContatoSocials from './Contato/ContatoSocials';
 export default function Contato() {
     return (
 
-        <section id="contato" className="flex maw-w-9/12 mx-auto py-30">
+        <section id="contato" className="flex maw-w-9/12 mx-auto py-36">
 
             <div className="mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-24">
 

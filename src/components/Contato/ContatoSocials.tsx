@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function ContatoSocials() {
     return (
 
-        <div className="w-full flex gap-12 py-8">
+        <div className="w-full flex gap-12 py-10">
                 
             <a href="https://wa.me/19995873557" target="_blank" rel="noopener noreferrer" 
              className="group p-4 rounded bg-white border-2 border-black hover:bg-black">
