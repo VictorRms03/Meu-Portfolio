@@ -9,7 +9,7 @@ export default function HeroSocials() {
             
                 <div className="w-1/2">
 
-                    <Image src="/images/devPicture.svg" alt="Ilustração de dev" width={600} height={600}/>
+                    <Image src="/images/TrashTrack.jpg" alt="Ilustração de dev" width={500} height={500}/>
 
                 </div>
 
@@ -23,7 +23,7 @@ export default function HeroSocials() {
                         anos e acrescentar valor por onde passar, enquanto continuo a aprender mais e mais!
                     </p>
 
-                    <a href="" target="_blank">
+                    <a href="https://github.com/VictorRms03/TrashTrack" target="_blank">
                         <Image src="/icons/redirect.svg" alt="Redirecionar para projeto" width={20} height={20} className="invert" />
                     </a>
 
@@ -43,7 +43,7 @@ export default function HeroSocials() {
                         anos e acrescentar valor por onde passar, enquanto continuo a aprender mais e mais!
                     </p>
 
-                    <a href="" target="_blank">
+                    <a href="https://github.com/ifsp-sbv-projetos-bcc/pidc-pde-2025" target="_blank">
                         <Image src="/icons/redirect.svg" alt="Redirecionar para projeto" width={20} height={20} className="invert" />
                     </a>
 
@@ -51,7 +51,7 @@ export default function HeroSocials() {
 
                 <div className="w-1/2">
 
-                    <Image src="/images/devPicture.svg" alt="Ilustração de dev" width={600} height={600}/>
+                    <Image src="/images/devPicture.svg" alt="Ilustração de dev" width={500} height={500}/>
 
                 </div>
 
@@ -61,7 +61,7 @@ export default function HeroSocials() {
             
                 <div className="w-1/2">
 
-                    <Image src="/images/devPicture.svg" alt="Ilustração de dev" width={600} height={600}/>
+                    <Image src="/images/UgaTeste.jpg" alt="Ilustração de dev" width={500} height={500}/>
 
                 </div>
 
@@ -75,7 +75,7 @@ export default function HeroSocials() {
                         anos e acrescentar valor por onde passar, enquanto continuo a aprender mais e mais!
                     </p>
 
-                    <a href="" target="_blank">
+                    <a href="https://github.com/VictorRms03/UgaTeste" target="_blank">
                         <Image src="/icons/redirect.svg" alt="Redirecionar para projeto" width={20} height={20} className="invert" />
                     </a>
 
