@@ -6,7 +6,7 @@
 
 [ ] - Escrever 'Sobre Mim'
 
-[ ] - Inserir imagens em 'Projetos'
+[ ] - Inserir imagem do Contrack em 'Projetos'
 
 [ ] - Escrever Descrições em 'Projetos'
 
