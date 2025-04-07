@@ -23,9 +23,9 @@ export default function Footer() {
         
                 <div>
 
-                <Link href="https://github.com/VictorRms03/Meu-Portfolio" target="_blank" className="bg-white text-black font-bold 
-                 px-4 py-2 rounded hover:bg-neutral-400 transition flex items-center gap-2">
-                    Acessar Projeto
+                <Link href="https://github.com/VictorRms03/Meu-Portfolio" target="_blank" className="group bg-white border-2 border-black px-4 py-2 rounded
+                 transition flex items-center gap-2 hover:bg-black hover:border-white ">
+                    <span className="font-bold text-black group-hover:text-white"> Acessar Projeto </span>
                 </Link>
                     
                 </div>

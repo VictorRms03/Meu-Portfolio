@@ -31,10 +31,11 @@ export default function Header() {
         
                 <div>
 
-                    <Link href="/archives/Curriculum Vitae - Victor Ramos.pdf" target="_blank" className="bg-black text-white px-4 py-2
-                     rounded hover:bg-neutral-800 transition flex items-center gap-2">
+                    <Link href="/archives/Curriculum Vitae - Victor Ramos.pdf" target="_blank" className="group bg-black px-4 py-2
+                     rounded hover:bg-white border-2 border-black hover:border-black transition flex items-center gap-2">
 
-                        Currículo <Image src="/icons/download.svg" alt="icone download" width={15} height={15}/>
+                        <span className="text-white group-hover:text-black">Currículo</span> <Image src="/icons/download.svg"
+                         alt="icone download" width={15} height={15} className="group-hover:invert"/>
 
                     </Link>
                     
