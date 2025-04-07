@@ -15,14 +15,14 @@ export default function HeroSocials() {
             <a href="https://www.linkedin.com/in/victor-ramos3/" target="_blank" rel="noopener noreferrer"
                 className="group p-4 rounded bg-white border-2 border-black hover:bg-black">
 
-                <Image src={"/icons/linkedin.svg"} alt="icone instagram" width={35} height={35} className="group-hover:invert"/>
+                <Image src={"/icons/linkedin.svg"} alt="icone linkedin" width={35} height={35} className="group-hover:invert"/>
 
             </a>
 
             <a href="https://github.com/VictorRms03" target="_blank" rel="noopener noreferrer"
                 className="group p-4 rounded bg-white border-2 border-black hover:bg-black">
 
-                <Image src={"/icons/github.svg"} alt="icone instagram" width={35} height={35} className="group-hover:invert"/>
+                <Image src={"/icons/github.svg"} alt="icone github" width={35} height={35} className="group-hover:invert"/>
 
             </a>
             
