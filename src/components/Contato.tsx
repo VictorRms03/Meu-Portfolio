@@ -16,14 +16,14 @@ export default function Contato() {
 
                 <div className="w-1/2">
 
-                    <h2 className="text-5xl mb-3"> Entre em <span className="font-extrabold">Contato!</span> </h2>
+                    <h2 className="text-6xl mb-3"> Entre em <span className="font-extrabold">Contato!</span> </h2>
 
                     <p className="font-light"> Estou sempre aberto a novas oportunidades e desafios como desenvolvedor! </p>
 
                     <ContatoSocials />
 
-                    <h2 className="text-3xl mb-3 font-bold"> victorrms03@gmail.com </h2>
-                    <h2 className="text-3xl mb-3 font-bold"> +55 (19) 99587-3557 </h2>
+                    <h2 className="text-2xl mb-3 font-bold"> victorrms03@gmail.com </h2>
+                    <h2 className="text-2xl mb-3 font-bold"> +55 (19) 99587-3557 </h2>
 
                 </div>
 
