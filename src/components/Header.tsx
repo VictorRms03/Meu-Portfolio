@@ -21,7 +21,7 @@ export default function Header() {
                     </div>
                 </Link>
         
-                <nav className="hidden md:flex gap-6 text-black font-medium">
+                <nav className="md:flex gap-6 text-black font-medium">
                     <Link href="#skills" scroll={true} className="hover:text-grey-800 transition">Habilidades</Link>
                     <Link href="#experience" scroll={true} className="hover:text-grey-800 transition">Experiências</Link>
                     <Link href="#sobre" scroll={true} className="hover:text-grey-800 transition">Sobre mim</Link>
@@ -29,15 +29,15 @@ export default function Header() {
                     <Link href="#contato" scroll={true} className="hover:text-grey-800 transition">Contato</Link>
                 </nav>
         
-                <div className="hidden md:block">
+                <div>
 
-                    <a href="/archives/Curriculum Vitae - Victor Ramos.pdf" target="_blank">
+                    <Link href="/archives/Curriculum Vitae - Victor Ramos.pdf" target="_blank">
 
                         <button className="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 transition flex items-center gap-2">
                             Currículo <Image src="/icons/download.svg" alt="icone download" width={15} height={15}/>
                         </button>
 
-                    </a>
+                    </Link>
                     
                 </div>
 

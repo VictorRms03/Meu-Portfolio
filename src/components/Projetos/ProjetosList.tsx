@@ -5,7 +5,7 @@ export default function HeroSocials() {
 
         <div className="w-full flex flex-col justify-center items-center gap-12 mt-16">
         
-            <div className="max-w-9/12 mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-12 border border-white">
+            <div className="max-w-9/12 mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-12">
             
                 <div className="w-1/2">
 
@@ -31,7 +31,7 @@ export default function HeroSocials() {
 
             </div>
 
-            <div className="max-w-9/12 mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-12 border border-white">
+            <div className="max-w-9/12 mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-12">
             
                 <div className="w-1/2">
 
@@ -57,7 +57,7 @@ export default function HeroSocials() {
 
             </div>
 
-            <div className="max-w-9/12 mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-12 border border-white">
+            <div className="max-w-9/12 mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-12">
             
                 <div className="w-1/2">
 
