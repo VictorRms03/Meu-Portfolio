@@ -31,11 +31,10 @@ export default function Header() {
         
                 <div>
 
-                    <Link href="/archives/Curriculum Vitae - Victor Ramos.pdf" target="_blank">
+                    <Link href="/archives/Curriculum Vitae - Victor Ramos.pdf" target="_blank" className="bg-black text-white px-4 py-2
+                     rounded hover:bg-neutral-800 transition flex items-center gap-2">
 
-                        <button className="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 transition flex items-center gap-2">
-                            Currículo <Image src="/icons/download.svg" alt="icone download" width={15} height={15}/>
-                        </button>
+                        Currículo <Image src="/icons/download.svg" alt="icone download" width={15} height={15}/>
 
                     </Link>
                     
