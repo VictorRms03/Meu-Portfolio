@@ -6,20 +6,20 @@ export default function Footer() {
         <footer className="w-full px-6 py-4 bg-black shadow-md sticky top-0 z-50">
             <div className="max-w-9/12 mx-auto flex items-center justify-between">
 
-                <Link href="#hero scroll={true}">
-                    <div className="flex items-center gap-3 text-xl font-bold text-white">
+                
+                <div className="flex items-center gap-3 text-xl font-bold text-white">
 
-                        <Image src="/images/Foto - Victor Ramos.jpg" 
-                            alt="Foto Victor Ramos" 
-                            width={40} 
-                            height={40} 
-                            className="rounded-full object-cover" 
-                        />
-                        
-                        Victor Ramos
+                    <Image src="/images/Foto - Victor Ramos.jpg" 
+                        alt="Foto Victor Ramos" 
+                        width={40} 
+                        height={40} 
+                        className="rounded-full object-cover" 
+                    />
                     
-                    </div>
-                </Link>
+                    Victor Ramos
+                
+                </div>
+                
         
                 <div>
 
