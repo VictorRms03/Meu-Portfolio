@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function HeroSocials() {
     return (
 
-        <div className="w-full flex flex-col justify-center items-center gap-12 mt-16">
+        <div className="w-full flex flex-col justify-center items-center gap-30 mt-16">
         
             <div className="max-w-9/12 mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-20">
             

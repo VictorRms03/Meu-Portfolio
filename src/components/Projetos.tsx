@@ -3,7 +3,7 @@ import ProjetosList from "./Projetos/ProjetosList";
 export default function Projetos() {
     return (
             
-        <section id="projetos" className="py-22 bg-black text-white scroll-mt-20">
+        <section id="projetos" className="py-26 bg-black text-white scroll-mt-20">
 
             <div className="max-w-9/12 mx-auto flex justify-center">
 
