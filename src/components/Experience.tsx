@@ -8,7 +8,7 @@ export default function Experience() {
 
             <div className="max-w-9/12 mx-auto flex justify-center mb-12">
 
-                <h2 className="text-5xl"> Experiências </h2>
+                <h2 className="text-5xl font-bold"> Experiências </h2>
 
             </div>
 
