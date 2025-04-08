@@ -3,7 +3,7 @@ export default function ExtensoesList() {
 
         <div className="max-w-9/12 mx-auto gap-6 py-12 ">
 
-            <div className="mb-12 border-1 border-white rounded-lg odd:bg-black even:bg-neutral-800 p-7">
+            <div className="mb-12 border-1 border-white rounded-lg bg-black hover:bg-neutral-800 p-7">
 
                 <div className="flex justify-between">
 
@@ -20,7 +20,7 @@ export default function ExtensoesList() {
                 </div>
             </div>
 
-            <div className="mb-12 border-1 border-white rounded-lg odd:bg-black even:bg-neutral-800 p-7">
+            <div className="mb-12 border-1 border-white rounded-lg bg-black hover:bg-neutral-800 p-7">
 
                 <div className="flex justify-between">
 
@@ -35,7 +35,7 @@ export default function ExtensoesList() {
                 </div>
             </div>
 
-            <div className="mb-12 border-1 border-white rounded-lg odd:bg-black even:bg-neutral-800 p-7">
+            <div className="mb-12 border-1 border-white rounded-lg bg-black hover:bg-neutral-800 p-7">
 
                 <div className="flex justify-between">
 
@@ -51,7 +51,7 @@ export default function ExtensoesList() {
                 </div>
             </div>
 
-            <div className="mb-12 border-1 border-white rounded-lg odd:bg-black even:bg-neutral-800 p-7">
+            <div className="mb-12 border-1 border-white rounded-lg bg-black hover:bg-neutral-800 p-7">
 
                 <div className="flex justify-between">
 
