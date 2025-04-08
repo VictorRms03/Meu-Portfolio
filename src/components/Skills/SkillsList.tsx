@@ -103,6 +103,55 @@ export default function Skills() {
 
             </div>
 
+            <div className="flex gap-30 justify-center items-center mt-16">
+
+                <button rel="noopener noreferrer" className="w-44 h-44 flex flex-col items-center 
+                    justify-center bg-white rounded shadow border-3 border-black group hover:bg-black 
+                    hover:text-white hover: transition duration-300">
+
+                    <Image src="/icons/c.svg" alt="icone git" width={60} height={60} className="transition group-hover:invert"/>
+                    <h3 className="text-3x1 mt-6 font-bold"> C </h3>
+
+                </button>
+
+                <button rel="noopener noreferrer" className="w-44 h-44 flex flex-col items-center 
+                    justify-center bg-white rounded shadow border-3 border-black group hover:bg-black 
+                    hover:text-white hover: transition duration-300">
+
+                    <Image src="/icons/cypress.svg" alt="icone git" width={60} height={60} className="transition group-hover:invert"/>
+                    <h3 className="text-3x1 mt-6 font-bold"> Cypress </h3>
+
+                </button>
+
+                <button rel="noopener noreferrer" className="w-44 h-44 flex flex-col items-center 
+                    justify-center bg-white rounded shadow border-3 border-black group hover:bg-black 
+                    hover:text-white hover: transition duration-300">
+
+                <Image src="/icons/bootstrap.svg" alt="icone git" width={60} height={60} className="transition group-hover:invert"/>
+                <h3 className="text-3x1 mt-6 font-bold"> Bootstrap </h3>
+
+                </button>
+
+                <button rel="noopener noreferrer" className="w-44 h-44 flex flex-col items-center 
+                    justify-center bg-white rounded shadow border-3 border-black group hover:bg-black 
+                    hover:text-white hover: transition duration-300">
+
+                    <Image src="/icons/tailwindcss.svg" alt="icone git" width={60} height={60} className="transition group-hover:invert"/>
+                    <h3 className="text-3x1 mt-6 font-bold"> TailwindCSS </h3>
+
+                </button>
+
+                <button rel="noopener noreferrer" className="w-44 h-44 flex flex-col items-center 
+                    justify-center bg-white rounded shadow border-3 border-black group hover:bg-black 
+                    hover:text-white hover: transition duration-300">
+
+                    <Image src="/icons/pandas.svg" alt="icone git" width={60} height={60} className="transition group-hover:invert"/>
+                    <h3 className="text-3x1 mt-6 font-bold"> Pandas </h3>
+
+                </button>
+
+            </div>
+
 
         </div>
         
