@@ -33,19 +33,19 @@ function gerarExtensao(titulo: string, data: string, principaisAtividades: strin
 
         <div className="mb-12 border-1 border-white rounded-lg bg-black hover:bg-neutral-800 p-7">
 
-                <div className="flex justify-between">
+            <div className="flex justify-between">
 
-                    <h3 className="text-x1">{titulo}</h3>
-                    <span className="text-gray-400">{data}</span>
+                <h3 className="text-x1">{titulo}</h3>
+                <span className="text-gray-400">{data}</span>
 
-                </div>
-
-                <div className="mt-4 max-w-8/12">
-
-                <p className="font-extralight"> <span className="font-bold">Principais atividades:</span> {principaisAtividades} </p>
-
-                </div>
             </div>
+
+            <div className="mt-4 max-w-8/12">
+
+            <p className="font-extralight"> <span className="font-bold">Principais atividades:</span> {principaisAtividades} </p>
+
+            </div>
+        </div>
 
     )
 }
