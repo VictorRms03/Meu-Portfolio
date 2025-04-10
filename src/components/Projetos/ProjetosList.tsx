@@ -40,7 +40,7 @@ export default function HeroSocials() {
 
 function gerarProjeto(id: number, titulo: string, descricao: string, imagem: string, link: string) {
 
-    let isReverse:boolean = id % 2 == 0 ? true : false;
+    const isReverse:boolean = id % 2 == 0 ? true : false;
 
     return (
 

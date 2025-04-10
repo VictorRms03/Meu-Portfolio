@@ -54,7 +54,7 @@ export default function Skills() {
 
 function skillButton(skillIcon: string, skillName: string) {
 
-    let altSkill:string = "icone " + skillName.toLowerCase();
+    const altSkill:string = "icone " + skillName.toLowerCase();
 
     return (
         <button rel="noopener noreferrer" className="w-44 h-44 flex flex-col items-center 

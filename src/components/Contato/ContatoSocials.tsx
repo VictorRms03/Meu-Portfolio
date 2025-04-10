@@ -22,7 +22,7 @@ export default function ContatoSocials() {
 
 function socialButton(socialLink: string, socialIcon: string, socialName: string) {
 
-    let altSocial:string = "icone " + socialName.toLowerCase();
+    const altSocial:string = "icone " + socialName.toLowerCase();
 
     return (
 
