@@ -4,43 +4,33 @@ export default function ContatoSocials() {
     return (
 
         <div className="w-full flex gap-12 py-10">
-                
-            <a href="https://wa.me/19995873557" target="_blank" rel="noopener noreferrer" 
-             className="group p-4 rounded bg-white border-2 border-black hover:bg-black">
 
-                <Image src={"/icons/whatsapp.svg"} alt="icone whatsapp" width={30} height={30} className="group-hover:invert"/>
+            { socialButton("https://wa.me/19995873557", "/icons/whatsapp.svg", "WhatsApp") }
 
-            </a>
+            { socialButton("https://www.instagram.com/victor_rms01/", "/icons/instagram.svg", "Instagram") }
 
-            <a href="https://www.instagram.com/victor_rms01/" target="_blank" rel="noopener noreferrer" 
-                className="group p-4 rounded bg-white border-2 border-black hover:bg-black">
+            { socialButton("https://www.linkedin.com/in/victor-ramos3/", "/icons/linkedin.svg", "Linkedin") }
 
-                <Image src={"/icons/instagram.svg"} alt="icone instagram" width={30} height={30} className="group-hover:invert"/>
+            { socialButton("https://github.com/VictorRms03", "/icons/github.svg", "GitHub") }
 
-            </a>
-        
-            <a href="https://www.linkedin.com/in/victor-ramos3/" target="_blank" rel="noopener noreferrer"
-                className="group p-4 rounded bg-white border-2 border-black hover:bg-black">
-
-                <Image src={"/icons/linkedin.svg"} alt="icone linkedin" width={30} height={30} className="group-hover:invert"/>
-
-            </a>
-        
-            <a href="https://github.com/VictorRms03" target="_blank" rel="noopener noreferrer"
-                className="group p-4 rounded bg-white border-2 border-black hover:bg-black">
-
-                <Image src={"/icons/github.svg"} alt="icone github" width={30} height={30} className="group-hover:invert"/>
-
-            </a>
-
-            <a href="https://discordapp.com/users/victorrms" target="_blank" rel="noopener noreferrer"
-                className="group p-4 rounded bg-white border-2 border-black hover:bg-black">
-
-                <Image src={"/icons/discord.svg"} alt="icone discord" width={30} height={30} className="group-hover:invert"/>
-
-            </a>
+            { socialButton("https://discordapp.com/users/victorrms", "/icons/discord.svg", "Discord") }
                     
         </div>
 
+    )
+}
+
+function socialButton(socialLink: string, socialIcon: string, socialName: string) {
+
+    let altSocial:string = "icone " + socialName.toLowerCase();
+
+    return (
+
+        <a href={socialLink} target="_blank" rel="noopener noreferrer"
+            className="group p-4 rounded bg-white border-2 border-black hover:bg-black">
+
+            <Image src={socialIcon} alt={altSocial} width={35} height={35} className="group-hover:invert"/>
+
+        </a>
     )
 }

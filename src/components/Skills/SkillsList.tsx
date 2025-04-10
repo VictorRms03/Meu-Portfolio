@@ -7,153 +7,63 @@ export default function Skills() {
 
             <div className="flex gap-30 justify-center items-center mt-16">
 
-                <button rel="noopener noreferrer" className="w-44 h-44 flex flex-col items-center 
-                    justify-center bg-white rounded shadow border-3 border-black group hover:bg-black 
-                    hover:text-white hover: transition duration-300">
+                { skillButton("/icons/git.svg", "Git") }
 
-                    <Image src="/icons/git.svg" alt="icone git" width={60} height={60} className="transition group-hover:invert"/>
-                    <h3 className="text-3x1 mt-6 font-bold"> Git </h3>
+                { skillButton("/icons/reactjs.svg", "React.js") }
 
-                </button>
+                { skillButton("/icons/nextjs.svg", "Next.js") }
 
-                <button rel="noopener noreferrer" className="w-44 h-44 flex flex-col items-center 
-                    justify-center bg-white rounded shadow border-3 border-black group hover:bg-black 
-                    hover:text-white hover: transition duration-300">
+                { skillButton("/icons/nodejs.svg", "Node.js") }
 
-                    <Image src="/icons/reactjs.svg" alt="icone git" width={60} height={60} className="transition group-hover:invert"/>
-                    <h3 className="text-3x1 mt-6 font-bold"> React.js </h3>
-
-                </button>
-
-                <button rel="noopener noreferrer" className="w-44 h-44 flex flex-col items-center 
-                    justify-center bg-white rounded shadow border-3 border-black group hover:bg-black 
-                    hover:text-white hover: transition duration-300">
-
-                    <Image src="/icons/nextjs.svg" alt="icone git" width={60} height={60} className="transition group-hover:invert"/>
-                    <h3 className="text-3x1 mt-6 font-bold"> Next.js </h3>
-
-                </button>
-
-                <button rel="noopener noreferrer" className="w-44 h-44 flex flex-col items-center 
-                    justify-center bg-white rounded shadow border-3 border-black group hover:bg-black 
-                    hover:text-white hover: transition duration-300">
-
-                    <Image src="/icons/nodejs.svg" alt="icone git" width={60} height={60} className="transition group-hover:invert"/>
-                    <h3 className="text-3x1 mt-6 font-bold"> Node.js </h3>
-
-                </button>
-
-                <button rel="noopener noreferrer" className="w-44 h-44 flex flex-col items-center 
-                    justify-center bg-white rounded shadow border-3 border-black group hover:bg-black 
-                    hover:text-white hover: transition duration-300">
-
-                    <Image src="/icons/mysql.svg" alt="icone git" width={60} height={60} className="transition group-hover:invert"/>
-                    <h3 className="text-3x1 mt-6 font-bold"> MySQL </h3>
-
-                </button>
+                { skillButton("/icons/mysql.svg", "MySQL") }
 
             </div>
 
             <div className="flex gap-30 justify-center items-center mt-16">
 
-                <button rel="noopener noreferrer" className="w-44 h-44 flex flex-col items-center 
-                    justify-center bg-white rounded shadow border-3 border-black group hover:bg-black 
-                    hover:text-white hover: transition duration-300">
+                { skillButton("/icons/java.svg", "Java") }
 
-                    <Image src="/icons/java.svg" alt="icone git" width={60} height={60} className="transition group-hover:invert"/>
-                    <h3 className="text-3x1 mt-6 font-bold"> Java </h3>
+                { skillButton("/icons/mariadb.svg", "MariaDB") }
 
-                </button>
+                { skillButton("/icons/agile.svg", "Metologias Agile") }
 
-                <button rel="noopener noreferrer" className="w-44 h-44 flex flex-col items-center 
-                    justify-center bg-white rounded shadow border-3 border-black group hover:bg-black 
-                    hover:text-white hover: transition duration-300">
+                { skillButton("/icons/php.svg", "PHP") }
 
-                    <Image src="/icons/mariadb.svg" alt="icone git" width={60} height={60} className="transition group-hover:invert"/>
-                    <h3 className="text-3x1 mt-6 font-bold"> MariaDB </h3>
-
-                </button>
-
-                <button rel="noopener noreferrer" className="w-44 h-44 flex flex-col items-center 
-                    justify-center bg-white rounded shadow border-3 border-black group hover:bg-black 
-                    hover:text-white hover: transition duration-300">
-
-                <Image src="/icons/agile.svg" alt="icone git" width={60} height={60} className="transition group-hover:invert"/>
-                <h3 className="text-3x1 mt-6 font-bold"> Metologias Agile </h3>
-
-                </button>
-
-                <button rel="noopener noreferrer" className="w-44 h-44 flex flex-col items-center 
-                    justify-center bg-white rounded shadow border-3 border-black group hover:bg-black 
-                    hover:text-white hover: transition duration-300">
-
-                    <Image src="/icons/php.svg" alt="icone git" width={60} height={60} className="transition group-hover:invert"/>
-                    <h3 className="text-3x1 mt-6 font-bold"> PHP </h3>
-
-                </button>
-
-                <button rel="noopener noreferrer" className="w-44 h-44 flex flex-col items-center 
-                    justify-center bg-white rounded shadow border-3 border-black group hover:bg-black 
-                    hover:text-white hover: transition duration-300">
-
-                    <Image src="/icons/python.svg" alt="icone git" width={60} height={60} className="transition group-hover:invert"/>
-                    <h3 className="text-3x1 mt-6 font-bold"> Python </h3>
-
-                </button>
+                { skillButton("/icons/python.svg", "Python") }
 
             </div>
 
             <div className="flex gap-30 justify-center items-center mt-16">
 
-                <button rel="noopener noreferrer" className="w-44 h-44 flex flex-col items-center 
-                    justify-center bg-white rounded shadow border-3 border-black group hover:bg-black 
-                    hover:text-white hover: transition duration-300">
+                { skillButton("/icons/c.svg", "C") }
 
-                    <Image src="/icons/c.svg" alt="icone git" width={60} height={60} className="transition group-hover:invert"/>
-                    <h3 className="text-3x1 mt-6 font-bold"> C </h3>
+                { skillButton("/icons/cypress.svg", "Cypress") }
 
-                </button>
+                { skillButton("/icons/bootstrap.svg", "Bootstrap") }
 
-                <button rel="noopener noreferrer" className="w-44 h-44 flex flex-col items-center 
-                    justify-center bg-white rounded shadow border-3 border-black group hover:bg-black 
-                    hover:text-white hover: transition duration-300">
+                { skillButton("/icons/tailwindcss.svg", "TailwindCSS") }
 
-                    <Image src="/icons/cypress.svg" alt="icone git" width={60} height={60} className="transition group-hover:invert"/>
-                    <h3 className="text-3x1 mt-6 font-bold"> Cypress </h3>
-
-                </button>
-
-                <button rel="noopener noreferrer" className="w-44 h-44 flex flex-col items-center 
-                    justify-center bg-white rounded shadow border-3 border-black group hover:bg-black 
-                    hover:text-white hover: transition duration-300">
-
-                <Image src="/icons/bootstrap.svg" alt="icone git" width={60} height={60} className="transition group-hover:invert"/>
-                <h3 className="text-3x1 mt-6 font-bold"> Bootstrap </h3>
-
-                </button>
-
-                <button rel="noopener noreferrer" className="w-44 h-44 flex flex-col items-center 
-                    justify-center bg-white rounded shadow border-3 border-black group hover:bg-black 
-                    hover:text-white hover: transition duration-300">
-
-                    <Image src="/icons/tailwindcss.svg" alt="icone git" width={60} height={60} className="transition group-hover:invert"/>
-                    <h3 className="text-3x1 mt-6 font-bold"> TailwindCSS </h3>
-
-                </button>
-
-                <button rel="noopener noreferrer" className="w-44 h-44 flex flex-col items-center 
-                    justify-center bg-white rounded shadow border-3 border-black group hover:bg-black 
-                    hover:text-white hover: transition duration-300">
-
-                    <Image src="/icons/pandas.svg" alt="icone git" width={60} height={60} className="transition group-hover:invert"/>
-                    <h3 className="text-3x1 mt-6 font-bold"> Pandas </h3>
-
-                </button>
+                { skillButton("/icons/pandas.svg", "Pandas") }
 
             </div>
-
 
         </div>
         
+    )
+}
+
+function skillButton(skillIcon: string, skillName: string) {
+
+    let altSkill:string = "icone " + skillName.toLowerCase();
+
+    return (
+        <button rel="noopener noreferrer" className="w-44 h-44 flex flex-col items-center 
+            justify-center bg-white rounded shadow border-3 border-black group hover:bg-black 
+            hover:text-white hover: transition duration-300">
+
+            <Image src={skillIcon} alt={altSkill}  width={60} height={60} className="transition group-hover:invert"/>
+            <h3 className="text-3x1 mt-6 font-bold"> {skillName} </h3>
+
+        </button>
     )
 }
