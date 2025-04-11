@@ -42,11 +42,11 @@ export default function Header() {
                 {/* Botões (desktop) */}
                 <nav className="hidden md:flex gap-6 text-black font-medium">
 
-                    <Link href="#skills" scroll={true} className="hover:text-grey-800 transition">Habilidades</Link>
-                    <Link href="#experience" scroll={true} className="hover:text-grey-800 transition">Experiências</Link>
-                    <Link href="#sobre" scroll={true} className="hover:text-grey-800 transition">Sobre mim</Link>
-                    <Link href="#projetos" scroll={true} className="hover:text-grey-800 transition">Projetos</Link>
-                    <Link href="#contato" scroll={true} className="hover:text-grey-800 transition">Contato</Link>
+                    { gerarBotaoNav( "#skills", "Habilidades", () => setIsOpen(false) ) }
+                    { gerarBotaoNav( "#experience", "Experiências", () => setIsOpen(false) ) }
+                    { gerarBotaoNav( "#sobre", "Sobre mim", () => setIsOpen(false) ) }
+                    { gerarBotaoNav( "#projetos", "Projetos", () => setIsOpen(false) ) }
+                    { gerarBotaoNav( "#contato", "Contato", () => setIsOpen(false) ) }
 
                 </nav>
         
@@ -69,18 +69,27 @@ export default function Header() {
              {isOpen && (
 
                 <div className="md:hidden px-6 pt-6 pb-2 space-y-4 flex flex-col items-center text-black font-medium bg-white">
-                    <Link href="#skills" scroll={true} className="block hover:text-gray-800 transition" onClick={() => setIsOpen(!isOpen)}>Habilidades</Link>
-                    <Link href="#experience" scroll={true} className="block hover:text-gray-800 transition" onClick={() => setIsOpen(!isOpen)}>Experiências</Link>
-                    <Link href="#sobre" scroll={true} className="block hover:text-gray-800 transition" onClick={() => setIsOpen(!isOpen)}>Sobre mim</Link>
-                    <Link href="#projetos" scroll={true} className="block hover:text-gray-800 transition" onClick={() => setIsOpen(!isOpen)}>Projetos</Link>
-                    <Link href="#contato" scroll={true} className="block hover:text-gray-800 transition" onClick={() => setIsOpen(!isOpen)}>Contato</Link>
+
+                    { gerarBotaoNav( "#skills", "Habilidades", () => setIsOpen(!isOpen) ) }
+                    { gerarBotaoNav( "#experience", "Experiências", () => setIsOpen(!isOpen) ) }
+                    { gerarBotaoNav( "#sobre", "Sobre mim", () => setIsOpen(!isOpen) ) }
+                    { gerarBotaoNav( "#projetos", "Projetos", () => setIsOpen(!isOpen) ) }
+                    { gerarBotaoNav( "#contato", "Contato", () => setIsOpen(!isOpen) ) }
+
                     <Link href="/archives/Curriculum Vitae - Victor Ramos.pdf" target="_blank" onClick={() => setIsOpen(!isOpen)}
                         className="block mt-2 bg-black px-4 py-2 rounded hover:bg-white border-2 border-black hover:border-black transition text-center">
                         <span className="text-white hover:text-black">Currículo</span>
                     </Link>
+
                 </div>
 
             )}
         </header>
+    )
+}
+
+function gerarBotaoNav(href: string, texto: string, onClick: () => void) {
+    return (
+        <Link href={href} scroll={true} className="block hover:text-gray-800 transition" onClick={onClick}>{texto}</Link>
     )
 }
