@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function ContatoSocials() {
     return (
 
-        <div className="grid grid-cols-3 md:grid-cols-5 gap-x-2 gap-y-2 md:gap-x-12 md:gap-y-12 py-10">
+        <div className="grid grid-cols-3 md:grid-cols-5 gap-x-2 gap-y-2 md:gap-x-12 md:gap-y-12 py-10 justify-items-center md:justify-start">
 
             { socialButton("https://wa.me/19995873557", "/icons/whatsapp.svg", "WhatsApp") }
 
@@ -16,20 +16,6 @@ export default function ContatoSocials() {
             { socialButton("https://discordapp.com/users/victorrms", "/icons/discord.svg", "Discord") }
 
         </div>
-
-        /*<div className="w-full flex gap-2 md:gap-12 py-10">
-
-            { socialButton("https://wa.me/19995873557", "/icons/whatsapp.svg", "WhatsApp") }
-
-            { socialButton("https://www.instagram.com/victor_rms01/", "/icons/instagram.svg", "Instagram") }
-
-            { socialButton("https://www.linkedin.com/in/victor-ramos3/", "/icons/linkedin.svg", "Linkedin") }
-
-            { socialButton("https://github.com/VictorRms03", "/icons/github.svg", "GitHub") }
-
-            { socialButton("https://discordapp.com/users/victorrms", "/icons/discord.svg", "Discord") }
-                    
-        </div>*/
 
     )
 }

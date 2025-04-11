@@ -10,11 +10,11 @@ export default function Contato() {
 
                 <div className="hidden md:flex w-1/2">
 
-                    <Image src="/images/helloPicture.svg" alt="Ilustração de dev" width={1000} height={1000}/>
+                    <Image src="/images/helloPicture.svg" alt="Ilustração de dev" width={900} height={900}/>
 
                 </div>
 
-                <div className="md:w-1/2 max-w-11/12 px-6 md:px-0 md:max-w-12/12">
+                <div className="md:w-1/2 max-w-11/12 px-6 md:px-0 md:max-w-12/12 text-center md:text-left">
 
                     <h2 className="text-5xl md:text-6xl mb-3"> Entre em <span className="font-extrabold">Contato!</span> </h2>
 
