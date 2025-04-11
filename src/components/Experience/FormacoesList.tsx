@@ -4,7 +4,7 @@ export default function FormacoesList() {
 
         <div className="max-w-9/12 mx-auto gap-6 py-12 ">
 
-            { gerarFormacao("Bacharelado em Ciência da Computação - Instuto Federal de São Paulo (IFSP)", "Mar 2022 - Presente (Previsão: Jan 2026)") }
+            { gerarFormacao("Bacharelado em Ciência da Computação - Instituto Federal de São Paulo (IFSP)", "Mar 2022 - Presente (Previsão: Jan 2026)") }
 
             { gerarFormacao("Técnico em Informática para Internet - Escola Técnica Estadual (ETEC)", "Jan 2019 - Dez 2021") }
 
