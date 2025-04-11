@@ -4,7 +4,7 @@ import FormacoesList from "./Experience/FormacoesList";
 export default function Experience() {
     return (
         
-        <section id="experience" className="py-16 bg-black text-white scroll-mt-20">
+        <section id="experience" className="pt-16 md:pb-16 bg-black text-white scroll-mt-20">
 
             <div className="max-w-9/12 mx-auto flex justify-center mb-12">
 

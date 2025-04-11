@@ -4,10 +4,9 @@ import Image from "next/image";
 export default function Footer() {
     return (
         <footer className="w-full px-6 py-4 bg-black shadow-md sticky top-0 z-50">
-            <div className="max-w-9/12 mx-auto flex items-center justify-between">
+            <div className="max-w-9/12 mx-auto flex items-center justify-center md:justify-between">
 
-                
-                <div className="flex items-center gap-3 text-xl font-bold text-white">
+                <div className="hidden md:flex items-center gap-3 text-xl font-bold text-white">
 
                     <Image src="/images/Foto - Victor Ramos.jpg" 
                         alt="Foto Victor Ramos" 
@@ -30,7 +29,7 @@ export default function Footer() {
                     
                 </div>
 
-                <div>
+                <div className="hidden md:flex">
 
                     <span className="font-bold text-white"> Feito com Next.js e Tailwind CSS </span>
 

@@ -5,7 +5,7 @@ let id:number = 1;
 export default function HeroSocials() {
     return (
 
-        <div className="w-full flex flex-col justify-center items-center gap-30 mt-16">
+        <div className="w-full flex flex-col justify-center items-center gap-15 md:gap-30 mt-16">
 
         { gerarProjeto( id++, 
             "TrashTrack - Aplicativo para Reportagem e Geolocalização de Lixos", 
@@ -44,18 +44,18 @@ function gerarProjeto(id: number, titulo: string, descricao: string, imagem: str
 
     return (
 
-        <div className={"max-w-9/12 mx-auto px-6 flex flex-col items-center justify-between gap-20 " + (isReverse ? "md:flex-row-reverse" : "md:flex-row")}>
+        <div className={"md:max-w-9/12 mx-auto px-6 flex flex-col items-center justify-between gap-10 md:gap-20 " + (isReverse ? "md:flex-row-reverse" : "md:flex-row")}>
             
-            <div className="w-1/2">
+            <div className="md:w-1/2">
 
                 <Image src={imagem} alt="Ilustração de dev" width={500} height={500}/>
 
             </div>
 
-            <div className="w-1/2">
+            <div className="md:w-1/2">
 
-                <h2 className="text-5xl mb-3 font-extrabold">{id.toString().padStart(2, '0')}</h2>
-                <h2 className="text-3xl font-extrabold">{titulo}</h2>
+                <h2 className="text-4xl md:text-5xl mb-3 font-extrabold">{id.toString().padStart(2, '0')}</h2>
+                <h2 className="text-2xl md:text-3xl font-extrabold">{titulo}</h2>
 
                 <p className="my-6"> {descricao} </p>
 
