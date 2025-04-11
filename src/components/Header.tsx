@@ -11,7 +11,7 @@ export default function Header() {
     return (
 
         <header className="w-full px-6 py-4 bg-white shadow-md sticky top-0 z-50">
-            <div className="max-w-9/12 mx-auto flex items-center justify-between">
+            <div className="max-w-11/12 md:max-w-9/12 mx-auto flex items-center justify-between">
 
                 {/* Logo Victor Ramos */}
                 <Link href="#hero scroll={true}">
