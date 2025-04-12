@@ -20,7 +20,7 @@ function gerarFormacao(formacao: string, data: string) {
 
         <div className="mb-12 border-1 border-white rounded-lg bg-black hover:bg-neutral-800 p-7">
 
-            <div className="flex flex-col md:flex-row gap-5 md:gap-0 justify-between text-center">
+            <div className="flex flex-col lg:flex-row gap-5 lg:gap-0 justify-between text-center">
 
                 <h3 className="text-x1">{formacao}</h3>
                 <span className="text-gray-400">{data}</span>

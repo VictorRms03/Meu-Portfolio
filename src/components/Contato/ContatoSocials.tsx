@@ -27,7 +27,7 @@ function socialButton(socialLink: string, socialIcon: string, socialName: string
     return (
 
         <a href={socialLink} target="_blank" rel="noopener noreferrer"
-            className="w-17 h-17 md:w-20 md:h-20 group p-4 rounded bg-white border-2 border-black hover:bg-black">
+            className="w-17 h-17 md:w-20 md:h-20 lg:w-18 lg:h-18 xl:w-20 xl:h-20 group p-4 rounded bg-white border-2 border-black hover:bg-black">
 
             <Image src={socialIcon} alt={altSocial} width={0} height={0} className="w-auto h-auto transition group-hover:invert" />
 
