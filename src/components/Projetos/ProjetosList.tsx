@@ -48,7 +48,7 @@ function gerarProjeto(id: number, titulo: string, descricao: string, imagem: str
             
             <div className="md:w-1/2">
 
-                <Image src={imagem} alt="Ilustração de dev" width={500} height={500}/>
+                <Image src={imagem} alt="Ilustração de dev" width={500} height={500} className="w-110 h-auto md:w-120"/>
 
             </div>
 

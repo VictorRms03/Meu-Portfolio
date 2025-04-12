@@ -50,12 +50,12 @@ function skillButton(skillIcon: string, skillName: string) {
     const altSkill:string = "icone " + skillName.toLowerCase();
 
     return (
-        <button rel="noopener noreferrer" className="w-40 h-40 md:w-44 md:h-44 flex flex-col items-center 
+        <button rel="noopener noreferrer" className="w-34 h-34 md:w-44 md:h-44 flex flex-col items-center 
             justify-center bg-white rounded shadow border-3 border-black group hover:bg-black 
             hover:text-white hover: transition duration-300">
 
             <Image src={skillIcon} alt={altSkill}  width={0} height={0} 
-                className="w-15 h-15 transition group-hover:invert"/>
+                className="w-14 h-14 md:w-15 md:h-15 transition group-hover:invert"/>
             <h3 className="text-3x1 mt-6 font-bold"> {skillName} </h3>
 
         </button>
