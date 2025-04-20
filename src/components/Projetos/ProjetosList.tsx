@@ -21,7 +21,7 @@ export default function HeroSocials() {
                 "Contrack é uma ferramenta em desenvolvimento para auxiliar na gestão de contratos da Rádio 92.1 " +
                 "de São João da Boa Vista. O projeto faz parte de uma iniciativa da faculdade onde atuamos como uma software house, " +
                 "e nele atuo como desenvolvedor, utilizando principalmente JavaScript e PHP, aplicando metodologias ágeis como Scrum e Kanban ao longo do processo.", 
-                "/images/Contrack.svg",
+                "/images/Contrack.png",
                 "https://github.com/ifsp-sbv-projetos-bcc/pidc-pde-2025") }
 
             { gerarProjeto( id++, 
