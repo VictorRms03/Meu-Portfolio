@@ -46,7 +46,7 @@ function gerarProjeto(id: number, titulo: string, descricao: string, imagem: str
 
         <div className={"xl:max-w-9/12 mx-auto px-6 flex flex-col items-center justify-between gap-10 xl:gap-20 " + (isReverse ? "xl:flex-row-reverse" : "xl:flex-row")}>
             
-            <div className="xl:w-1/2">
+            <div className="xl:w-1/2 flex justify-center items-center">
 
                 <Image src={imagem} alt="Ilustração de dev" width={500} height={500} className="w-110 h-auto xl:w-120"/>
 
