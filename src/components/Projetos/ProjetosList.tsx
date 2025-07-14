@@ -25,6 +25,13 @@ export default function HeroSocials() {
                 "https://github.com/ifsp-sbv-projetos-bcc/pidc-pde-2025") }
 
             { gerarProjeto( id++, 
+                "Tic Tac Toe: Online - Jogo interativo online", 
+                "Tic Tac Toe: Online é um jogo online que utiliza WebSockets para comunicação com os jogadores, " +
+                "utilizando de Node.js no backend e Next.js com TailwindCSS no frontend.",
+                "/images/TicTacToe.jpg",
+                "https://tic-tac-toe-online-victorrms.vercel.app/") }
+
+            { gerarProjeto( id++, 
                 "UgaTeste - Website Teste Vocacional e Recomendação de Faculdades", 
                 "UgaTeste é uma ferramenta de teste vocacional desenvolvida como TCC " +
                 "no Ensino Médio Integrado ao Técnico em Informática para Internet. Criado em grupo, o projeto, " +
