@@ -17,7 +17,7 @@ export default function Sobre() {
 
                     <h2 className="text-5xl"> Sobre <span className="font-extrabold">Mim!</span> </h2>
 
-                    <p className="mt-6 xl:mt-12"> Olá! Tenho 20 anos e programo desde os 14 quando entrei para o curso técnico em informática,
+                    <p className="mt-6 xl:mt-12"> Olá! Tenho 21 anos e programo desde os 14 quando entrei para o curso técnico em informática,
                          desde então venho estudo e me apaixonando cada vez mais pela área da tecnologia.
                          Estou finalizando minha formação como Bacharel em Ciência da Computação e também sou formado em Técnico em Informática para Internet, 
                          o que me deu uma base sólida quanto ao desenvolvimento tanto Back-end quanto Front-end. Gosto de explorar novas linguagens e ferramentas e
