@@ -5,27 +5,27 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Victor Ramos - Portfólio",
-  description: "Este é o portfólio de Victor Ramos",
+    title: "Victor Ramos - Portfólio",
+    description: "Este é o portfólio de Victor Ramos",
 };
 
 const sora = Sora({
-  subsets: ["latin"],
-  variable: "--font-sora"
-})
+    subsets: ["latin"],
+    variable: "--font-sora",
+});
 
 export default function RootLayout({
-  children,
+    children,
 }: Readonly<{
-  children: React.ReactNode;
+    children: React.ReactNode;
 }>) {
-  return (
-    <html lang="pt-BR">
-      <body className={sora.className + " scroll-smooth"}>
-        <Header />
-        {children}
-        <Footer />
-      </body>
-    </html>
-  );
+    return (
+        <html lang="pt-BR">
+            <body className={sora.className + " scroll-smooth"}>
+                <Header />
+                {children}
+                <Footer />
+            </body>
+        </html>
+    );
 }
