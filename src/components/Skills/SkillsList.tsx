@@ -7,37 +7,24 @@ export default function Skills() {
 
             <div className="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gap-5 md:gap-10 xl:gap-x-30 xl:gap-y-15">
 
-                { skillButton("/icons/git.svg", "Git") }
-
+                { skillButton("/icons/laravel.svg", "Laravel") }
                 { skillButton("/icons/reactjs.svg", "React.js") }
-
-                { skillButton("/icons/nextjs.svg", "Next.js") }
-
-                { skillButton("/icons/nodejs.svg", "Node.js") }
-
                 { skillButton("/icons/mysql.svg", "MySQL") }
-
+                { skillButton("/icons/git.svg", "Git") }
+                { skillButton("/icons/nextjs.svg", "Next.js") }
+                
+                { skillButton("/icons/nodejs.svg", "Node.js") }
                 { skillButton("/icons/java.svg", "Java") }
-
                 { skillButton("/icons/mariadb.svg", "MariaDB") }
-
                 { skillButton("/icons/agile.svg", "Metologias Agile") }
-
                 { skillButton("/icons/php.svg", "PHP") }
-
+                
                 { skillButton("/icons/python.svg", "Python") }
-
-                { skillButton("/icons/c.svg", "C") }
-
                 { skillButton("/icons/cypress.svg", "Cypress") }
-
-                { skillButton("/icons/bootstrap.svg", "Bootstrap") }
-
+                { skillButton("/icons/n8n.svg", "n8n") }
                 { skillButton("/icons/tailwindcss.svg", "TailwindCSS") }
-
                 { skillButton("/icons/pandas.svg", "Pandas") }
                 
-
             </div>
 
         </div>
