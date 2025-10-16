@@ -1,6 +1,6 @@
-import ProjetosList from "./Projetos/ProjetosList";
+import ProjectsList from "./Projects/ProjectsList";
 
-export default function Projetos() {
+export default function Projects() {
     return (
         <section
             id="projetos"
@@ -11,7 +11,7 @@ export default function Projetos() {
                     Meus <span className="font-bold">Projetos</span>
                 </h2>
             </div>
-            <ProjetosList />
+            <ProjectsList />
         </section>
     );
 }

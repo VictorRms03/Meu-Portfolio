@@ -1,12 +1,12 @@
 import Image from "next/image";
 
-export default function Sobre() {
+export default function About() {
     return (
         <section id="sobre" className="py-12 scroll-mt-20">
             <div className="max-w-11/12 md:max-w-9/12 xl:max-w-9/12 mx-auto px-6 flex flex-col xl:flex-row items-center justify-between gap-12">
                 <div>
                     <Image
-                        src="/images/Foto2 - Victor Ramos.jpg"
+                        src="/images/victorRamos2.jpg"
                         alt="Ilustração de dev"
                         width={550}
                         height={550}

@@ -1,4 +1,4 @@
-import SkillsList from "./Skills/SkillsList";
+import SkillCards from "./Skills/SkillCards";
 
 export default function Skills() {
     return (
@@ -8,7 +8,7 @@ export default function Skills() {
                     Hard <span className="font-extrabold">Skills</span>
                 </h2>
             </div>
-            <SkillsList />
+            <SkillCards />
         </section>
     );
 }

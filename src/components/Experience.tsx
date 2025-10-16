@@ -1,6 +1,6 @@
-import ExtensoesList from "./Experience/ExtensoesList";
-import FormacoesList from "./Experience/FormacoesList";
-import ProfissoesList from "./Experience/ProfissoesList";
+import AcademicExtensions from "./Experience/AcademicExtensions";
+import WorkExperiences from "./Experience/WorkExperiences";
+import Degrees from "./Experience/Degrees";
 
 export default function Experience() {
     return (
@@ -13,13 +13,13 @@ export default function Experience() {
             </div>
 
             <h2 className="text-3xl flex justify-center"> Profissionais </h2>
-            <ProfissoesList />
+            <WorkExperiences />
 
             <h2 className="text-3xl flex justify-center"> Formações </h2>
-            <FormacoesList />
+            <Degrees />
 
             <h2 className="text-3xl flex justify-center"> Extensões </h2>
-            <ExtensoesList />
+            <AcademicExtensions />
         </section>
     );
 }

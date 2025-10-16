@@ -40,7 +40,7 @@ export default function Header() {
                 <Link href="#hero scroll={true}">
                     <div className="flex items-center gap-3 text-xl font-bold text-black">
                         <Image
-                            src="/images/Foto - Victor Ramos.jpg"
+                            src="/images/victorRamos1.jpg"
                             alt="Foto Victor Ramos"
                             width={40}
                             height={40}
@@ -86,7 +86,7 @@ export default function Header() {
                 {/* Botão currículo (desktop) */}
                 <div className="hidden lg:flex">
                     <Link
-                        href="/archives/Curriculum Vitae - Victor Ramos.pdf"
+                        href="/archives/curriculum.pdf"
                         target="_blank"
                         className="group bg-black px-4 py-2
                      rounded hover:bg-white border-2 border-black hover:border-black transition flex items-center gap-2"
@@ -117,7 +117,7 @@ export default function Header() {
                         />
                     ))}
                     <Link
-                        href="/archives/Curriculum Vitae - Victor Ramos.pdf"
+                        href="/archives/curriculum.pdf"
                         target="_blank"
                         onClick={() => setIsOpen(!isOpen)}
                         className="block mt-2 bg-black px-4 py-2 rounded hover:bg-white border-2 border-black hover:border-black transition text-center"

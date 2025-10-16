@@ -1,7 +1,7 @@
 import Image from "next/image";
-import ContatoSocials from "./Contato/ContatoSocials";
+import GetInTouchSocials from "./GetInTouch/GetInTouchSocials";
 
-export default function Contato() {
+export default function GetInTouch() {
     return (
         <section
             id="contato"
@@ -19,13 +19,13 @@ export default function Contato() {
                 <div className="lg:w-1/2 max-w-11/12 px-6 lg:px-0 lg:max-w-12/12 text-center lg:text-left">
                     <h2 className="text-5xl lg:text-6xl mb-3">
                         Entre em
-                        <span className="font-extrabold">Contato!</span>
+                        <span className="font-extrabold"> Contato!</span>
                     </h2>
                     <p className="font-light">
                         Estou sempre aberto a novas oportunidades e desafios
                         como desenvolvedor!
                     </p>
-                    <ContatoSocials />
+                    <GetInTouchSocials />
                     <h2 className="text-xl lg:text-2xl mb-3 font-bold">
                         victorrms03@gmail.com
                     </h2>

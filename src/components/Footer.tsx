@@ -7,7 +7,7 @@ export default function Footer() {
             <div className="max-w-11/12 xl:max-w-9/12 mx-auto flex items-center justify-center lg:justify-between">
                 <div className="hidden lg:flex items-center gap-3 text-xl font-bold text-white">
                     <Image
-                        src="/images/Foto - Victor Ramos.jpg"
+                        src="/images/victorRamos1.jpg"
                         alt="Foto Victor Ramos"
                         width={40}
                         height={40}

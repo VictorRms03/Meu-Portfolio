@@ -1,26 +1,22 @@
 import Image from "next/image";
 
 interface SocialButtonProps {
-    socialLink: string;
-    socialIcon: string;
-    socialName: string;
+    link: string;
+    iconPath: string;
+    name: string;
 }
 
-function SocialButton({
-    socialLink,
-    socialIcon,
-    socialName,
-}: SocialButtonProps) {
-    const altSocial: string = "icone " + socialName.toLowerCase();
+function SocialButton({ link, iconPath, name }: SocialButtonProps) {
+    const altSocial: string = "icone " + name.toLowerCase();
     return (
         <a
-            href={socialLink}
+            href={link}
             target="_blank"
             rel="noopener noreferrer"
             className="w-17 h-17 md:w-20 md:h-20 lg:w-18 lg:h-18 xl:w-20 xl:h-20 group p-4 rounded bg-white border-2 border-black hover:bg-black"
         >
             <Image
-                src={socialIcon}
+                src={iconPath}
                 alt={altSocial}
                 width={0}
                 height={0}
@@ -30,31 +26,31 @@ function SocialButton({
     );
 }
 
-export default function ContatoSocials() {
+export default function GetInTouchSocials() {
     const socials = [
         {
             link: "https://wa.me/19995873557",
-            icon: "/icons/whatsapp.svg",
+            iconPath: "/icons/socialNetworks/whatsapp.svg",
             name: "WhatsApp",
         },
         {
             link: "https://www.instagram.com/victor_rms01/",
-            icon: "/icons/instagram.svg",
+            iconPath: "/icons/socialNetworks/instagram.svg",
             name: "Instagram",
         },
         {
             link: "https://www.linkedin.com/in/victor-ramos3/",
-            icon: "/icons/linkedin.svg",
+            iconPath: "/icons/socialNetworks/linkedin.svg",
             name: "Linkedin",
         },
         {
             link: "https://github.com/VictorRms03",
-            icon: "/icons/github.svg",
+            iconPath: "/icons/socialNetworks/github.svg",
             name: "GitHub",
         },
         {
             link: "https://discordapp.com/users/victorrms",
-            icon: "/icons/discord.svg",
+            iconPath: "/icons/socialNetworks/discord.svg",
             name: "Discord",
         },
     ];
@@ -64,9 +60,9 @@ export default function ContatoSocials() {
             {socials.map((social, index) => (
                 <SocialButton
                     key={index}
-                    socialLink={social.link}
-                    socialIcon={social.icon}
-                    socialName={social.name}
+                    link={social.link}
+                    iconPath={social.iconPath}
+                    name={social.name}
                 />
             ))}
         </div>
