@@ -29,6 +29,7 @@ function SkillCard({ iconPath, name }: SkillCardProps) {
 export default function SkillCards() {
     const skills = [
         { name: "Laravel", iconPath: "/icons/skills/laravel.svg" },
+        { name: "Nest.js", iconPath: "/icons/skills/nestjs.svg" },
         { name: "React.js", iconPath: "/icons/skills/reactjs.svg" },
         { name: "MySQL", iconPath: "/icons/skills/mysql.svg" },
         { name: "Git", iconPath: "/icons/skills/git.svg" },
@@ -40,7 +41,6 @@ export default function SkillCards() {
         { name: "PHP", iconPath: "/icons/skills/php.svg" },
         { name: "Python", iconPath: "/icons/skills/python.svg" },
         { name: "Cypress", iconPath: "/icons/skills/cypress.svg" },
-        { name: "n8n", iconPath: "/icons/skills/n8n.svg" },
         { name: "TailwindCSS", iconPath: "/icons/skills/tailwindcss.svg" },
         { name: "Pandas", iconPath: "/icons/skills/pandas.svg" },
     ];
