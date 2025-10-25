@@ -26,7 +26,7 @@ function ProjectCard({
             <div className="xl:w-1/2 flex justify-center items-center">
                 <Image
                     src={imagePath}
-                    alt="Ilustração de dev"
+                    alt={`Imagem de projeto ${id}`}
                     width={500}
                     height={500}
                     className="w-110 h-auto xl:w-120"
