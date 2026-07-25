@@ -1,5 +1,6 @@
 import Image from "next/image";
 import GetInTouchSocials from "./GetInTouch/GetInTouchSocials";
+import SectionHeading from "@/components/ui/SectionHeading";
 
 export default function GetInTouch() {
     return (
@@ -17,10 +18,11 @@ export default function GetInTouch() {
                     />
                 </div>
                 <div className="lg:w-1/2 max-w-11/12 px-6 lg:px-0 lg:max-w-12/12 text-center lg:text-left">
-                    <h2 className="text-5xl lg:text-6xl mb-3">
-                        Entre em
-                        <span className="font-extrabold"> Contato!</span>
-                    </h2>
+                    <SectionHeading
+                        prefix="Entre em"
+                        highlight="Contato!"
+                        className="text-5xl lg:text-6xl mb-3"
+                    />
                     <p className="font-light">
                         Estou sempre aberto a novas oportunidades e desafios
                         como desenvolvedor!

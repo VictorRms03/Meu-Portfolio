@@ -1,13 +1,13 @@
 import SkillCards from "./Skills/SkillCards";
+import Container from "@/components/ui/Container";
+import SectionHeading from "@/components/ui/SectionHeading";
 
 export default function Skills() {
     return (
         <section id="skills" className="py-12 scroll-mt-20">
-            <div className="max-w-9/12 mx-auto flex justify-center">
-                <h2 className="text-5xl">
-                    Hard <span className="font-extrabold">Skills</span>
-                </h2>
-            </div>
+            <Container className="max-w-9/12 flex justify-center">
+                <SectionHeading prefix="Hard" highlight="Skills" />
+            </Container>
             <SkillCards />
         </section>
     );

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import HeroSocials from "./Hero/HeroSocials";
+import Container from "@/components/ui/Container";
 
 export default function Hero() {
     return (
@@ -7,7 +8,7 @@ export default function Hero() {
             id="hero"
             className="pt-0 md:pt-12 lg:pt-24 pb-12 scroll-mt-30"
         >
-            <div className="max-w-11/12 lg:max-w-9/12 md:text-center lg:text-left mx-auto px-6 flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
+            <Container className="max-w-11/12 lg:max-w-9/12 md:text-center lg:text-left px-6 flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
                 <div className="lg:w-1/2">
                     <h2 className="text-4xl lg:text-5xl mb-1 lg:mb-3">
                         Olá, eu sou
@@ -38,7 +39,7 @@ export default function Hero() {
                         className="hidden lg:flex lg:w-150 lg:h-125"
                     />
                 </div>
-            </div>
+            </Container>
             <HeroSocials />
         </section>
     );

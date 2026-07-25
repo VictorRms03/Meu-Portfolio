@@ -1,21 +1,21 @@
 import Image from "next/image";
+import Container from "@/components/ui/Container";
+import SectionHeading from "@/components/ui/SectionHeading";
 
 export default function About() {
     return (
         <section id="sobre" className="py-12 scroll-mt-20">
-            <div className="max-w-11/12 md:max-w-9/12 xl:max-w-9/12 mx-auto px-6 flex flex-col xl:flex-row items-center justify-between gap-12">
+            <Container className="max-w-11/12 md:max-w-9/12 px-6 flex flex-col xl:flex-row items-center justify-between gap-12">
                 <div>
                     <Image
                         src="/images/victorRamos2.jpg"
-                        alt="Ilustração de dev"
+                        alt="Foto de Victor Ramos"
                         width={550}
                         height={550}
                     />
                 </div>
                 <div className="xl:w-1/2 justify-start">
-                    <h2 className="text-5xl">
-                        Sobre <span className="font-extrabold">Mim!</span>
-                    </h2>
+                    <SectionHeading prefix="Sobre" highlight="Mim!" />
                     <p className="mt-6 xl:mt-12">
                         Olá! Tenho 21 anos e programo desde os 14 quando entrei
                         para o curso técnico em informática, desde então venho
@@ -36,7 +36,7 @@ export default function About() {
                         criatividade em dia.
                     </p>
                 </div>
-            </div>
+            </Container>
         </section>
     );
 }
