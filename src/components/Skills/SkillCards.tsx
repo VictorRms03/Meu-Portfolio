@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 import { skills } from "@/data/skills";
 
 interface SkillCardProps {
@@ -6,17 +9,28 @@ interface SkillCardProps {
     hoverIconPath?: string;
     name: string;
     delay: number;
+    animate: boolean;
 }
 
-function SkillCard({ iconPath, hoverIconPath, name, delay }: SkillCardProps) {
+function SkillCard({
+    iconPath,
+    hoverIconPath,
+    name,
+    delay,
+    animate,
+}: SkillCardProps) {
     const altSkill: string = "icone " + name.toLowerCase();
     return (
         <div
             style={{ animationDelay: `${delay}s` }}
-            className="w-34 h-34 xl:w-44 xl:h-44 flex flex-col items-center
+            className={`w-34 h-34 xl:w-44 xl:h-44 flex flex-col items-center
             justify-center bg-white rounded-2xl shadow-lg shadow-black/10 border-2 border-black group hover:bg-black
             hover:text-white transition-all duration-300 hover:-translate-y-2 hover:scale-105
-            hover:shadow-xl hover:shadow-black/20 animate-[fade-in-up_0.6s_ease-out_both]"
+            hover:shadow-xl hover:shadow-black/20 ${
+                animate
+                    ? "animate-[fade-in-up_0.6s_ease-out_both]"
+                    : "opacity-0"
+            }`}
         >
             <div className="relative w-14 h-14 lg:w-15 lg:h-15">
                 <Image
@@ -47,8 +61,29 @@ function SkillCard({ iconPath, hoverIconPath, name, delay }: SkillCardProps) {
 }
 
 export default function SkillCards() {
+    const ref = useRef<HTMLDivElement>(null);
+    const [visible, setVisible] = useState(false);
+
+    useEffect(() => {
+        const node = ref.current;
+        if (!node) return;
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setVisible(true);
+                    observer.disconnect();
+                }
+            },
+            { threshold: 0.2 }
+        );
+
+        observer.observe(node);
+        return () => observer.disconnect();
+    }, []);
+
     return (
-        <div className="flex justify-center items-center mt-16">
+        <div ref={ref} className="flex justify-center items-center mt-16">
             <div className="flex flex-wrap justify-center gap-5 md:gap-10 xl:gap-12 max-w-5xl">
                 {skills.map((skill, index) => (
                     <SkillCard
@@ -57,6 +92,7 @@ export default function SkillCards() {
                         hoverIconPath={skill.hoverIconPath}
                         name={skill.name}
                         delay={index * 0.08}
+                        animate={visible}
                     />
                 ))}
             </div>
