@@ -5,7 +5,7 @@ import { academicExtensions } from "@/data/experience";
 
 export default function AcademicExtensions() {
     return (
-        <Container className="max-w-9/12">
+        <Container className="max-w-9/12 w-full">
             <h3 className="mb-8 flex items-center justify-center gap-2 text-3xl font-semibold">
                 <StarIcon className="h-6 w-6 text-violet-400" />
                 Extensões
