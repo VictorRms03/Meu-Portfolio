@@ -35,7 +35,7 @@ export default function About() {
     }, []);
 
     return (
-        <section id="sobre" className="py-12 scroll-mt-20">
+        <section id="sobre" className="py-28 md:py-36 scroll-mt-20">
             <Container className="max-w-11/12 md:max-w-9/12 px-6">
                 <div
                     ref={ref}
