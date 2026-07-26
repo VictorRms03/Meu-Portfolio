@@ -29,6 +29,7 @@ export const contactSocials: Social[] = [
     {
         link: "https://wa.me/19995873557",
         iconPath: "/icons/socialNetworks/whatsapp.svg",
+        hoverIconPath: "/icons/socialNetworks/whatsapp-color.svg",
         name: "WhatsApp",
     },
     {
@@ -51,6 +52,7 @@ export const contactSocials: Social[] = [
     {
         link: "https://discordapp.com/users/victorrms",
         iconPath: "/icons/socialNetworks/discord.svg",
+        hoverIconPath: "/icons/socialNetworks/discord-color.svg",
         name: "Discord",
     },
 ];

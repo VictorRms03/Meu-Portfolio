@@ -29,7 +29,7 @@ export default function SocialButton({
                 href={link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`group relative flex items-center justify-center rounded-full bg-white border-2 border-black hover:bg-black transition-all duration-300 hover:-translate-y-1 hover:scale-110 hover:shadow-lg hover:shadow-violet-500/20 ${className ?? ""}`}
+                className={`group relative flex items-center justify-center overflow-hidden rounded-full bg-white border-2 border-black hover:bg-black transition-all duration-300 hover:-translate-y-1 hover:scale-110 hover:shadow-lg hover:shadow-violet-500/20 ${className ?? ""}`}
             >
                 <Image
                     src={iconPath}
@@ -55,7 +55,7 @@ export default function SocialButton({
             href={link}
             target="_blank"
             rel="noopener noreferrer"
-            className={`group relative flex items-center justify-center rounded-full bg-white border-2 border-black hover:bg-black transition-all duration-300 hover:-translate-y-1 hover:scale-110 hover:shadow-lg hover:shadow-violet-500/20 ${className ?? ""}`}
+            className={`group relative flex items-center justify-center overflow-hidden rounded-full bg-white border-2 border-black hover:bg-black transition-all duration-300 hover:-translate-y-1 hover:scale-110 hover:shadow-lg hover:shadow-violet-500/20 ${className ?? ""}`}
         >
             <Image
                 src={iconPath}
