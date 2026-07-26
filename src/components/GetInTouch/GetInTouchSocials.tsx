@@ -9,6 +9,7 @@ export default function GetInTouchSocials() {
                     key={social.name}
                     link={social.link}
                     iconPath={social.iconPath}
+                    hoverIconPath={social.hoverIconPath}
                     name={social.name}
                     className="w-17 h-17 md:w-20 md:h-20 lg:w-18 lg:h-18 xl:w-20 xl:h-20 p-4"
                     imageClassName="w-auto h-auto transition"

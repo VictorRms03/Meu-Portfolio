@@ -1,6 +1,7 @@
 export interface Social {
     link: string;
     iconPath: string;
+    hoverIconPath?: string;
     name: string;
 }
 
@@ -13,11 +14,13 @@ export const heroSocials: Social[] = [
     {
         link: "https://www.instagram.com/victor_rms01/",
         iconPath: "/icons/socialNetworks/instagram.svg",
+        hoverIconPath: "/icons/socialNetworks/instagram-color.svg",
         name: "Instagram",
     },
     {
         link: "https://www.linkedin.com/in/victor-ramos3/",
         iconPath: "/icons/socialNetworks/linkedin.svg",
+        hoverIconPath: "/icons/socialNetworks/linkedin-color.svg",
         name: "Linkedin",
     },
 ];
@@ -31,11 +34,13 @@ export const contactSocials: Social[] = [
     {
         link: "https://www.instagram.com/victor_rms01/",
         iconPath: "/icons/socialNetworks/instagram.svg",
+        hoverIconPath: "/icons/socialNetworks/instagram-color.svg",
         name: "Instagram",
     },
     {
         link: "https://www.linkedin.com/in/victor-ramos3/",
         iconPath: "/icons/socialNetworks/linkedin.svg",
+        hoverIconPath: "/icons/socialNetworks/linkedin-color.svg",
         name: "Linkedin",
     },
     {

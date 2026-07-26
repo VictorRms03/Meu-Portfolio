@@ -9,6 +9,7 @@ export default function HeroSocials() {
                     key={social.name}
                     link={social.link}
                     iconPath={social.iconPath}
+                    hoverIconPath={social.hoverIconPath}
                     name={social.name}
                     className="p-4"
                     imageClassName="w-7 md:w-9 h-auto"
