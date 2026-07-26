@@ -13,6 +13,37 @@ interface NavButtonProps {
     isActive: boolean;
 }
 
+interface CurriculumButtonProps {
+    onClick?: () => void;
+    className?: string;
+}
+
+function CurriculumButton({ onClick, className = "" }: CurriculumButtonProps) {
+    return (
+        <Link
+            href="/archives/curriculum.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={onClick}
+            className={`group relative flex items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-black bg-black px-5 py-2 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/20 ${className}`}
+        >
+            <span className="absolute inset-0 z-0 origin-left scale-x-0 bg-white transition-transform duration-300 ease-out group-hover:scale-x-100" />
+            <span className="relative z-10 flex items-center gap-2">
+                <span className="text-white transition-colors duration-300 group-hover:text-black">
+                    Currículo
+                </span>
+                <Image
+                    src="/icons/download.svg"
+                    alt="icone download"
+                    width={15}
+                    height={15}
+                    className="transition-all duration-300 group-hover:translate-y-0.5 group-hover:invert"
+                />
+            </span>
+        </Link>
+    );
+}
+
 function NavButton({ href, label, onClick, isActive }: NavButtonProps) {
     return (
         <Link
@@ -71,7 +102,7 @@ export default function Header() {
 
     return (
         <header
-            className={`w-full px-6 py-4 sticky top-0 z-50 backdrop-blur-md bg-white/80 transition-shadow duration-300 ${
+            className={`w-full px-6 py-4 sticky top-0 z-50 backdrop-blur-md bg-white/90 transition-shadow duration-300 ${
                 scrolled ? "shadow-lg" : "shadow-none"
             }`}
         >
@@ -130,24 +161,7 @@ export default function Header() {
 
                 {/* Botão currículo (desktop) */}
                 <div className="hidden lg:flex">
-                    <Link
-                        href="/archives/curriculum.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group bg-black px-4 py-2
-                     rounded hover:bg-white border-2 border-black hover:border-black transition flex items-center gap-2"
-                    >
-                        <span className="text-white group-hover:text-black">
-                            Currículo
-                        </span>{" "}
-                        <Image
-                            src="/icons/download.svg"
-                            alt="icone download"
-                            width={15}
-                            height={15}
-                            className="group-hover:invert"
-                        />
-                    </Link>
+                    <CurriculumButton />
                 </div>
             </Container>
 
@@ -155,12 +169,13 @@ export default function Header() {
             <div
                 id="mobile-menu"
                 aria-hidden={!isOpen}
+                inert={!isOpen}
                 className={`lg:hidden grid transition-all duration-300 ease-in-out ${
                     isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
                 }`}
             >
                 <div className="overflow-hidden">
-                    <div className="flex flex-col items-center gap-4 bg-white/95 px-6 pt-6 pb-4 font-medium backdrop-blur-md">
+                    <div className="flex flex-col items-center gap-4 px-6 pt-6 pb-4 font-medium">
                         {navLinks.map((navLink) => (
                             <NavButton
                                 key={navLink.href}
@@ -170,17 +185,10 @@ export default function Header() {
                                 isActive={activeSection === navLink.href.slice(1)}
                             />
                         ))}
-                        <Link
-                            href="/archives/curriculum.pdf"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                        <CurriculumButton
                             onClick={() => setIsOpen(false)}
-                            className="mt-2 block rounded border-2 border-black bg-black px-4 py-2 text-center transition hover:bg-white hover:border-black"
-                        >
-                            <span className="text-white hover:text-black">
-                                Currículo
-                            </span>
-                        </Link>
+                            className="mt-2"
+                        />
                     </div>
                 </div>
             </div>
