@@ -14,7 +14,7 @@ export const workExperiences: TimelineEntry[] = [
 export const degrees: TimelineEntry[] = [
     {
         title: "Bacharelado em Ciência da Computação - Instituto Federal de São Paulo (IFSP)",
-        date: "Mar 2022 - Presente (Previsão: Jan 2026)",
+        date: "Mar 2022 - Dez 2025",
     },
     {
         title: "Técnico em Informática para Internet - Escola Técnica Estadual (ETEC)",
