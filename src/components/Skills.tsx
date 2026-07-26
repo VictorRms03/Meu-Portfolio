@@ -5,7 +5,7 @@ import SectionHeading from "@/components/ui/SectionHeading";
 export default function Skills() {
     return (
         <section id="skills" className="pt-12 pb-36 scroll-mt-20">
-            <Container className="max-w-9/12 flex flex-col items-center text-center gap-3">
+            <Container className="max-w-11/12 md:max-w-9/12 flex flex-col items-center text-center gap-3">
                 <SectionHeading prefix="Hard" highlight="Skills" />
                 <p className="text-black/60 max-w-md">
                     Tecnologias que uso no dia a dia

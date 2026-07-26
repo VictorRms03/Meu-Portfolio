@@ -84,7 +84,7 @@ export default function SkillCards() {
 
     return (
         <div ref={ref} className="flex justify-center items-center mt-16">
-            <div className="flex flex-wrap justify-center gap-5 md:gap-10 xl:gap-12 max-w-5xl">
+            <div className="flex flex-wrap justify-center gap-5 sm:gap-6 md:gap-10 xl:gap-12 max-w-5xl">
                 {skills.map((skill, index) => (
                     <SkillCard
                         key={skill.name}

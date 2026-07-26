@@ -15,7 +15,7 @@ export default function Experience() {
             <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-violet-400/60 to-transparent" />
             <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-violet-400/60 to-transparent" />
 
-            <Container className="max-w-9/12 flex justify-center mb-16">
+            <Container className="max-w-11/12 md:max-w-9/12 flex justify-center mb-16">
                 <h2 className="text-5xl font-bold"> Experiências </h2>
             </Container>
 

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ReactNode, useEffect, useRef, useState } from "react";
+import { ReactElement, cloneElement, useEffect, useRef, useState } from "react";
 import GetInTouchSocials from "./GetInTouch/GetInTouchSocials";
 import SectionHeading from "@/components/ui/SectionHeading";
 import EnvelopeIcon from "@/components/icons/EnvelopeIcon";
@@ -14,7 +14,7 @@ const PHONE_DISPLAY = "+55 (19) 99587-3557";
 const PHONE_TEL = "+5519995873557";
 
 interface ContactLineProps {
-    icon: ReactNode;
+    icon: ReactElement<{ className?: string }>;
     href: string;
     label: string;
     copyValue: string;
@@ -30,13 +30,26 @@ function ContactLine({ icon, href, label, copyValue }: ContactLineProps) {
     };
 
     return (
-        <div className="flex items-center justify-center gap-3 lg:justify-start">
-            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-black/15 text-black/60">
+        <div className="flex min-w-0 items-center justify-center gap-3 lg:justify-start">
+            <button
+                type="button"
+                onClick={handleCopy}
+                aria-label={`Copiar ${label}`}
+                className="flex h-14 w-14 items-center justify-center rounded-full border-2 border-black/10 text-black/70 transition-all duration-300 active:scale-95 hover:border-black hover:bg-black hover:text-white lg:hidden"
+            >
+                {copied ? (
+                    <CheckIcon className="h-5 w-5 text-violet-600" />
+                ) : (
+                    cloneElement(icon, { className: "h-5 w-5" })
+                )}
+            </button>
+
+            <span className="hidden h-9 w-9 shrink-0 items-center justify-center rounded-full border border-black/15 text-black/60 lg:flex">
                 {icon}
             </span>
             <a
                 href={href}
-                className="text-xl font-bold transition-colors hover:text-violet-600 lg:text-2xl"
+                className="hidden min-w-0 break-words text-sm font-bold transition-colors hover:text-violet-600 sm:text-base lg:inline lg:text-2xl"
             >
                 {label}
             </a>
@@ -44,7 +57,7 @@ function ContactLine({ icon, href, label, copyValue }: ContactLineProps) {
                 type="button"
                 onClick={handleCopy}
                 aria-label={`Copiar ${label}`}
-                className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-black/40 transition-colors hover:bg-black/5 hover:text-black"
+                className="hidden h-8 w-8 shrink-0 items-center justify-center rounded-full text-black/40 transition-colors hover:bg-black/5 hover:text-black lg:flex"
             >
                 {copied ? (
                     <CheckIcon className="h-4 w-4 text-violet-600" />
@@ -85,7 +98,7 @@ export default function GetInTouch() {
         >
             <div
                 ref={ref}
-                className={`mx-auto flex flex-col lg:flex-row items-center justify-between gap-24 transition-all duration-700 ${
+                className={`mx-auto flex w-full min-w-0 flex-col lg:flex-row items-center justify-between gap-8 lg:gap-24 transition-all duration-700 ${
                     visible
                         ? "translate-y-0 opacity-100"
                         : "translate-y-8 opacity-0"
@@ -100,7 +113,7 @@ export default function GetInTouch() {
                         className="animate-[float_4s_ease-in-out_infinite]"
                     />
                 </div>
-                <div className="lg:w-1/2 max-w-11/12 px-6 lg:px-0 lg:max-w-12/12 text-center lg:text-left">
+                <div className="lg:w-1/2 min-w-0 max-w-11/12 px-6 lg:px-0 lg:max-w-12/12 text-center lg:text-left">
                     <SectionHeading
                         prefix="Entre em"
                         highlight="Contato!"
@@ -112,7 +125,7 @@ export default function GetInTouch() {
                     </p>
                     <GetInTouchSocials />
 
-                    <div className="flex flex-col gap-4 rounded-2xl border border-black/10 p-6 shadow-sm">
+                    <div className="flex flex-row items-center justify-center gap-6 rounded-2xl border border-black/10 p-6 shadow-sm lg:flex-col lg:gap-4">
                         <ContactLine
                             icon={<EnvelopeIcon className="h-4 w-4" />}
                             href={`mailto:${EMAIL}`}

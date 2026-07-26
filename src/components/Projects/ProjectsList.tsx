@@ -106,7 +106,7 @@ function ProjectCard({
 
 export default function ProjectsList() {
     return (
-        <div className="mx-auto mt-16 grid w-full max-w-9/12 grid-cols-1 gap-8 px-6 md:grid-cols-2 xl:gap-10 xl:px-0">
+        <div className="mx-auto mt-16 grid w-full max-w-11/12 md:max-w-9/12 grid-cols-1 gap-8 px-6 md:grid-cols-2 xl:gap-10 xl:px-0">
             {projects.map((project) => (
                 <ProjectCard
                     key={project.title}
