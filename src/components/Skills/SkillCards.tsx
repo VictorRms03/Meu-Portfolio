@@ -20,13 +20,25 @@ function SkillCard({
     animate,
 }: SkillCardProps) {
     const altSkill: string = "icone " + name.toLowerCase();
+    const [active, setActive] = useState(false);
+
+    const handleClick = () => {
+        setActive(true);
+        setTimeout(() => setActive(false), 500);
+    };
+
     return (
         <div
             style={{ animationDelay: `${delay}s` }}
+            onClick={handleClick}
             className={`w-34 h-34 xl:w-44 xl:h-44 flex flex-col items-center
-            justify-center bg-white rounded-2xl shadow-lg shadow-black/10 border-2 border-black group hover:bg-black
+            justify-center rounded-2xl shadow-lg shadow-black/10 border-2 border-black group hover:bg-black
             hover:text-white transition-all duration-300 hover:-translate-y-2 hover:scale-105
             hover:shadow-xl hover:shadow-black/20 ${
+                active
+                    ? "bg-black text-white -translate-y-2 scale-105 shadow-xl shadow-black/20"
+                    : "bg-white"
+            } ${
                 animate
                     ? "animate-[fade-in-up_0.6s_ease-out_both]"
                     : "opacity-0"
@@ -40,8 +52,8 @@ function SkillCard({
                     height={0}
                     className={`w-14 h-14 lg:w-15 lg:h-15 transition-opacity duration-300 ${
                         hoverIconPath
-                            ? "group-hover:opacity-0"
-                            : "group-hover:invert"
+                            ? `group-hover:opacity-0 ${active ? "opacity-0" : ""}`
+                            : `group-hover:invert ${active ? "invert" : ""}`
                     }`}
                 />
                 {hoverIconPath && (
@@ -51,7 +63,9 @@ function SkillCard({
                         aria-hidden="true"
                         width={0}
                         height={0}
-                        className="absolute inset-0 w-14 h-14 lg:w-15 lg:h-15 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                        className={`absolute inset-0 w-14 h-14 lg:w-15 lg:h-15 opacity-0 transition-opacity duration-300 group-hover:opacity-100 ${
+                            active ? "opacity-100" : ""
+                        }`}
                     />
                 )}
             </div>

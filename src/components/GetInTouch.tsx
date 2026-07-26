@@ -18,14 +18,22 @@ interface ContactLineProps {
     href: string;
     label: string;
     copyValue: string;
+    onCopied?: () => void;
 }
 
-function ContactLine({ icon, href, label, copyValue }: ContactLineProps) {
+function ContactLine({
+    icon,
+    href,
+    label,
+    copyValue,
+    onCopied,
+}: ContactLineProps) {
     const [copied, setCopied] = useState(false);
 
     const handleCopy = async () => {
         await navigator.clipboard.writeText(copyValue);
         setCopied(true);
+        onCopied?.();
         setTimeout(() => setCopied(false), 2000);
     };
 
@@ -72,6 +80,26 @@ function ContactLine({ icon, href, label, copyValue }: ContactLineProps) {
 export default function GetInTouch() {
     const ref = useRef<HTMLDivElement>(null);
     const [visible, setVisible] = useState(false);
+    const [toastMsg, setToastMsg] = useState<string | null>(null);
+    const [toastLeaving, setToastLeaving] = useState(false);
+    const toastTimers = useRef<{
+        hide?: ReturnType<typeof setTimeout>;
+        remove?: ReturnType<typeof setTimeout>;
+    }>({});
+
+    const showToast = (message: string) => {
+        if (toastTimers.current.hide) clearTimeout(toastTimers.current.hide);
+        if (toastTimers.current.remove)
+            clearTimeout(toastTimers.current.remove);
+
+        setToastLeaving(false);
+        setToastMsg(message);
+        toastTimers.current.hide = setTimeout(() => setToastLeaving(true), 2000);
+        toastTimers.current.remove = setTimeout(
+            () => setToastMsg(null),
+            2300
+        );
+    };
 
     useEffect(() => {
         const node = ref.current;
@@ -89,6 +117,14 @@ export default function GetInTouch() {
 
         observer.observe(node);
         return () => observer.disconnect();
+    }, []);
+
+    useEffect(() => {
+        return () => {
+            if (toastTimers.current.hide) clearTimeout(toastTimers.current.hide);
+            if (toastTimers.current.remove)
+                clearTimeout(toastTimers.current.remove);
+        };
     }, []);
 
     return (
@@ -131,16 +167,31 @@ export default function GetInTouch() {
                             href={`mailto:${EMAIL}`}
                             label={EMAIL}
                             copyValue={EMAIL}
+                            onCopied={() => showToast("Email copiado!")}
                         />
                         <ContactLine
                             icon={<PhoneIcon className="h-4 w-4" />}
                             href={`tel:${PHONE_TEL}`}
                             label={PHONE_DISPLAY}
                             copyValue={PHONE_DISPLAY}
+                            onCopied={() => showToast("Telefone copiado!")}
                         />
                     </div>
                 </div>
             </div>
+
+            {toastMsg && (
+                <div
+                    className={`pointer-events-none fixed bottom-6 left-1/2 z-50 flex items-center gap-2 rounded-full border-2 border-black bg-black px-5 py-3 text-sm font-medium text-white shadow-lg shadow-black/20 lg:hidden ${
+                        toastLeaving
+                            ? "animate-[toast-out_0.3s_ease-in_forwards]"
+                            : "animate-[toast-in_0.3s_ease-out_both]"
+                    }`}
+                >
+                    <CheckIcon className="h-4 w-4 text-violet-400" />
+                    {toastMsg}
+                </div>
+            )}
         </section>
     );
 }
