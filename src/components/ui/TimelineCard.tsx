@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+
 interface TimelineCardProps {
     title: string;
     date: string;
@@ -9,26 +13,44 @@ export default function TimelineCard({
     date,
     description,
 }: TimelineCardProps) {
-    const hasDescription = Boolean(description);
+    const ref = useRef<HTMLDivElement>(null);
+    const [visible, setVisible] = useState(false);
+
+    useEffect(() => {
+        const node = ref.current;
+        if (!node) return;
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setVisible(true);
+                    observer.disconnect();
+                }
+            },
+            { threshold: 0.2 }
+        );
+
+        observer.observe(node);
+        return () => observer.disconnect();
+    }, []);
 
     return (
         <div
-            className={`mb-12 border-1 border-white bg-black hover:bg-neutral-800 p-7 ${
-                hasDescription ? "rounded-xl" : "rounded-lg"
+            ref={ref}
+            className={`rounded-xl border-l-4 border-violet-400/80 bg-white/[0.04] p-7 ring-1 ring-white/10 transition-all duration-500 hover:-translate-y-1 hover:bg-white/[0.08] hover:shadow-lg hover:shadow-violet-400/10 hover:ring-violet-400/30 ${
+                visible
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-6 opacity-0"
             }`}
         >
-            <div
-                className={`flex flex-col justify-between text-center gap-5 ${
-                    hasDescription
-                        ? "xl:flex-row xl:gap-0"
-                        : "lg:flex-row lg:gap-0"
-                }`}
-            >
-                <h3 className="text-xl">{title}</h3>
-                <span className="text-gray-400">{date}</span>
+            <div className="flex flex-col justify-between gap-3 text-center sm:flex-row sm:items-start sm:text-left">
+                <h3 className="text-xl font-medium">{title}</h3>
+                <span className="mx-auto shrink-0 rounded-full border border-violet-400/40 bg-violet-400/10 px-4 py-1 text-sm whitespace-nowrap text-violet-300 sm:mx-0">
+                    {date}
+                </span>
             </div>
             {description && (
-                <div className="mt-4 xl:max-w-8/12 text-center xl:text-left">
+                <div className="mt-4 text-center sm:text-left">
                     <p className="font-extralight">
                         <span className="font-bold">
                             Principais atividades:{" "}

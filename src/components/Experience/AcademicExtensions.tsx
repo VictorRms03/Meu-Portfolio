@@ -1,18 +1,19 @@
-import TimelineCard from "@/components/ui/TimelineCard";
+import Timeline from "@/components/ui/Timeline";
 import Container from "@/components/ui/Container";
+import StarIcon from "@/components/icons/StarIcon";
 import { academicExtensions } from "@/data/experience";
 
 export default function AcademicExtensions() {
     return (
-        <Container className="max-w-9/12 gap-6 py-12">
-            {academicExtensions.map((extension) => (
-                <TimelineCard
-                    key={extension.title}
-                    title={extension.title}
-                    date={extension.date}
-                    description={extension.description}
-                />
-            ))}
+        <Container className="max-w-9/12">
+            <h3 className="mb-8 flex items-center justify-center gap-2 text-3xl font-semibold">
+                <StarIcon className="h-6 w-6 text-violet-400" />
+                Extensões
+            </h3>
+            <Timeline
+                entries={academicExtensions}
+                icon={<StarIcon className="h-4 w-4" />}
+            />
         </Container>
     );
 }
