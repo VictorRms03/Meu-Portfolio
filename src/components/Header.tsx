@@ -37,7 +37,7 @@ function CurriculumButton({ onClick, className = "" }: CurriculumButtonProps) {
                     alt="icone download"
                     width={15}
                     height={15}
-                    className="transition-all duration-300 group-hover:translate-y-0.5 group-hover:invert"
+                    className="transition-all duration-300 group-hover:invert"
                 />
             </span>
         </Link>
