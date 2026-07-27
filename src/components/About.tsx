@@ -53,7 +53,7 @@ export default function About() {
                                 alt="Foto de Victor Ramos"
                                 fill
                                 sizes="(min-width: 768px) 320px, 256px"
-                                className="object-cover transition-all duration-500 hover:scale-105 lg:grayscale lg:hover:grayscale-0"
+                                className="object-cover transition-all duration-500 hover:scale-105"
                             />
                         </div>
                     </div>
