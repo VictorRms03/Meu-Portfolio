@@ -1,7 +1,3 @@
-"use client";
-
-import { useEffect, useRef, useState } from "react";
-
 interface TimelineCardProps {
     title: string;
     date: string;
@@ -13,36 +9,8 @@ export default function TimelineCard({
     date,
     description,
 }: TimelineCardProps) {
-    const ref = useRef<HTMLDivElement>(null);
-    const [visible, setVisible] = useState(false);
-
-    useEffect(() => {
-        const node = ref.current;
-        if (!node) return;
-
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setVisible(true);
-                    observer.disconnect();
-                }
-            },
-            { threshold: 0.2 }
-        );
-
-        observer.observe(node);
-        return () => observer.disconnect();
-    }, []);
-
     return (
-        <div
-            ref={ref}
-            className={`rounded-xl border-l-4 border-violet-400/80 bg-white/[0.04] p-7 ring-1 ring-white/10 transition-all duration-500 hover:-translate-y-1 hover:bg-white/[0.08] hover:shadow-lg hover:shadow-violet-400/10 hover:ring-violet-400/30 ${
-                visible
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-6 opacity-0"
-            }`}
-        >
+        <div className="rounded-xl border-l-4 border-violet-400/80 bg-white/[0.04] p-7 ring-1 ring-white/10 transition-all duration-500 hover:-translate-y-1 hover:bg-white/[0.08] hover:shadow-lg hover:shadow-violet-400/10 hover:ring-violet-400/30">
             <div className="flex flex-col justify-between gap-3 text-center sm:flex-row sm:items-start sm:text-left">
                 <h3 className="text-xl font-medium">{title}</h3>
                 <span className="mx-auto shrink-0 rounded-full border border-violet-400/40 bg-violet-400/10 px-4 py-1 text-sm whitespace-nowrap text-violet-300 sm:mx-0">

@@ -3,7 +3,7 @@ import { contactSocials } from "@/data/socials";
 
 export default function GetInTouchSocials() {
     return (
-        <div className="flex flex-wrap justify-center gap-x-4 gap-y-4 py-10 md:justify-start md:gap-x-8 md:gap-y-8">
+        <div className="flex flex-wrap justify-center gap-x-4 gap-y-4 py-10 md:gap-x-8 md:gap-y-8">
             {contactSocials.map((social) => (
                 <SocialButton
                     key={social.name}

@@ -1,43 +1,76 @@
 @import "tailwindcss";
 
-html {
-  scroll-behavior: smooth;
-}
-
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #0a0a0b;
+  --fg: #ededf0;
+  --surface: #131318;
+  --muted: #8f8fa0;
+  --accent: #a78bfa;
+  --accent-strong: #7c3aed;
+  --line: rgba(255, 255, 255, 0.08);
+  --header-h: 4.5rem;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: var(--bg);
+  --color-foreground: var(--fg);
+  --color-surface: var(--surface);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-line: var(--line);
+  --font-display: var(--font-sora);
+  --shadow-glow: 0 0 48px -12px var(--accent);
+}
+
+@utility glass {
+  background-color: color-mix(in oklab, var(--fg) 4%, transparent);
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--line);
+}
+
+@utility glass-blur {
+  background-color: color-mix(in oklab, var(--bg) 70%, transparent);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(16px) saturate(140%);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: transparent;
+  color: var(--fg);
 }
 
-@keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+::selection {
+  background: var(--accent);
+  color: #0a0a0b;
 }
 
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-12px);
-  }
+[data-reveal] {
+  opacity: 0;
+}
+
+[data-reveal-child] > * {
+  opacity: 0;
+}
+
+.skill-card {
+  opacity: 0;
+}
+
+.split-heading,
+.hero-line,
+.hero-fade {
+  opacity: 0;
+}
+
+.is-scrolled {
+  box-shadow: 0 8px 40px -12px rgba(0, 0, 0, 0.8);
+}
+
+html.has-cursor,
+html.has-cursor * {
+  cursor: none;
 }
 
 @keyframes toast-in {
