@@ -15,7 +15,7 @@ interface ContactLineProps {
     href: string;
     label: string;
     copyValue: string;
-    onCopied?: () => void;
+    onCopied: () => void;
 }
 
 function ContactLine({
@@ -30,17 +30,18 @@ function ContactLine({
     const handleCopy = async () => {
         await navigator.clipboard.writeText(copyValue);
         setCopied(true);
-        onCopied?.();
+        onCopied();
         setTimeout(() => setCopied(false), 2000);
     };
 
     return (
         <div className="flex min-w-0 items-center justify-center gap-3">
+            {/* mobile: o botão é o próprio alvo, o texto não cabe */}
             <button
                 type="button"
                 onClick={handleCopy}
                 aria-label={`Copiar ${label}`}
-                className="flex h-14 w-14 items-center justify-center rounded-full border-2 border-line text-muted transition-all duration-300 active:scale-95 hover:border-accent hover:bg-accent hover:text-background lg:hidden"
+                className="flex h-14 w-14 items-center justify-center rounded-full border-2 border-line text-muted transition-[transform,border-color,background-color,color] duration-300 active:scale-95 hover:border-accent hover:bg-accent hover:text-background lg:hidden"
             >
                 {copied ? (
                     <CheckIcon className="h-5 w-5 text-accent" />
@@ -54,7 +55,7 @@ function ContactLine({
             </span>
             <a
                 href={href}
-                className="hidden min-w-0 break-words text-sm font-bold transition-colors hover:text-accent sm:text-base lg:inline lg:text-2xl"
+                className="hidden min-w-0 break-words text-sm font-bold transition-colors hover:text-accent sm:text-base lg:inline lg:text-xl"
             >
                 {label}
             </a>
@@ -90,10 +91,7 @@ export default function ContactLines() {
         setToastLeaving(false);
         setToastMsg(message);
         toastTimers.current.hide = setTimeout(() => setToastLeaving(true), 2000);
-        toastTimers.current.remove = setTimeout(
-            () => setToastMsg(null),
-            2300
-        );
+        toastTimers.current.remove = setTimeout(() => setToastMsg(null), 2300);
     };
 
     useEffect(() => {
@@ -106,7 +104,7 @@ export default function ContactLines() {
 
     return (
         <>
-            <div className="flex flex-row items-center justify-center gap-6 rounded-2xl p-6 glass lg:flex-col lg:gap-4">
+            <div className="flex flex-row items-center justify-center gap-6 rounded-2xl glass px-8 py-6 lg:flex-col lg:gap-4">
                 <ContactLine
                     icon={<EnvelopeIcon className="h-4 w-4" />}
                     href={`mailto:${EMAIL}`}

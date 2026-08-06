@@ -39,7 +39,7 @@ export default function SocialButton({
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={handleClick}
-                className={`group relative flex items-center justify-center overflow-hidden rounded-full glass transition-all duration-300 hover:-translate-y-1 hover:scale-110 hover:bg-accent hover:shadow-lg hover:shadow-violet-500/20 ${
+                className={`group relative flex items-center justify-center overflow-hidden rounded-full glass transition-[transform,background-color,box-shadow] duration-300 hover:-translate-y-1 hover:scale-110 hover:bg-accent hover:shadow-lg hover:shadow-violet-500/20 ${
                     active
                         ? "-translate-y-1 scale-110 bg-accent shadow-lg shadow-violet-500/20"
                         : ""
@@ -74,7 +74,7 @@ export default function SocialButton({
             target="_blank"
             rel="noopener noreferrer"
             onClick={handleClick}
-            className={`group relative flex items-center justify-center overflow-hidden rounded-full glass transition-all duration-300 hover:-translate-y-1 hover:scale-110 hover:bg-accent hover:shadow-lg hover:shadow-violet-500/20 ${
+            className={`group relative flex items-center justify-center overflow-hidden rounded-full glass transition-[transform,background-color,box-shadow] duration-300 hover:-translate-y-1 hover:scale-110 hover:bg-accent hover:shadow-lg hover:shadow-violet-500/20 ${
                 active
                     ? "-translate-y-1 scale-110 bg-accent shadow-lg shadow-violet-500/20"
                     : ""
@@ -85,7 +85,7 @@ export default function SocialButton({
                 alt={altSocial}
                 width={imageWidth}
                 height={imageHeight}
-                className={`invert transition-all duration-300 group-hover:invert-0 ${
+                className={`invert transition-[filter] duration-300 group-hover:invert-0 ${
                     active ? "invert-0" : ""
                 } ${imageClassName ?? ""}`}
             />

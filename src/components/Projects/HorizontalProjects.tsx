@@ -1,13 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useRef } from "react";
 import Reveal from "@/components/motion/Reveal";
-import Magnetic from "@/components/motion/Magnetic";
+import ActionButton from "@/components/ui/ActionButton";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { gsap, useGSAP, ScrollTrigger } from "@/lib/gsap";
+import { gsap, useGSAP } from "@/lib/gsap";
 import { projects, Project } from "@/data/projects";
+
+const total = String(projects.length).padStart(2, "0");
 
 function TitlePanel({ className }: { className?: string }) {
     return (
@@ -39,47 +40,44 @@ function CTAPanel({ className }: { className?: string }) {
                 Quer ver mais? O código de todos os meus projetos está
                 disponível no GitHub.
             </p>
-            <Magnetic>
-                <Link
-                    href="https://github.com/VictorRms03"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full border-2 border-accent px-6 py-2.5 text-sm font-medium text-accent transition-all duration-300 hover:shadow-glow"
-                >
-                    <span className="absolute inset-0 z-0 origin-left scale-x-0 bg-accent transition-transform duration-300 ease-out group-hover:scale-x-100" />
-                    <span className="relative z-10 transition-colors duration-300 group-hover:text-background">
-                        Mais no GitHub
-                    </span>
-                </Link>
-            </Magnetic>
+            <ActionButton
+                href="https://github.com/VictorRms03"
+                external
+                variant="outline"
+            >
+                Mais no GitHub
+            </ActionButton>
         </div>
     );
 }
 
 function ProjectPanel({
-    title,
-    description,
-    imagePath,
-    link,
-    techStack,
-}: Project) {
+    project: { title, description, imagePath, link, techStack },
+    index,
+}: {
+    project: Project;
+    index: number;
+}) {
     return (
-        <div className="flex h-full flex-col overflow-hidden rounded-xl glass transition-all duration-500 hover:border-accent/30 hover:shadow-glow">
+        <div className="flex h-full flex-col overflow-hidden rounded-xl glass transition-[border-color,box-shadow] duration-500 hover:border-accent/30 hover:shadow-glow">
             <div className="relative aspect-video w-full overflow-hidden bg-white/5">
-                <div className="absolute inset-6 md:inset-8">
+                {/* -inset-x-10 dá folga para o parallax horizontal não abrir vão */}
+                <div className="panel-media absolute inset-y-6 -inset-x-10 md:inset-y-8">
                     <Image
                         src={imagePath}
                         alt={`Imagem de projeto ${title}`}
                         fill
-                        sizes="(min-width: 1024px) 60vw, 100vw"
+                        sizes="(min-width: 1024px) 45vw, 100vw"
                         className="object-contain"
                     />
                 </div>
+                <span className="absolute top-4 right-4 font-mono text-xs tracking-widest text-muted">
+                    {String(index + 1).padStart(2, "0")} — {total}
+                </span>
             </div>
+
             <div className="flex flex-1 flex-col p-6">
-                <h3 className="text-xl font-extrabold xl:text-2xl">
-                    {title}
-                </h3>
+                <h3 className="text-lg font-extrabold xl:text-xl">{title}</h3>
 
                 <div className="mt-3 flex flex-wrap gap-2">
                     {techStack.map((tech) => (
@@ -92,29 +90,28 @@ function ProjectPanel({
                     ))}
                 </div>
 
-                <p className="mt-4 flex-1 text-sm text-muted">
-                    {description}
-                </p>
+                <p className="mt-4 flex-1 text-sm text-muted">{description}</p>
 
-                <a
-                    href={link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group relative mt-6 inline-flex w-fit items-center gap-2 overflow-hidden rounded-full border-2 border-line px-5 py-2 text-sm font-medium transition-all duration-300 hover:-translate-y-0.5 hover:border-accent"
-                >
-                    <span className="absolute inset-0 z-0 origin-left scale-x-0 bg-accent transition-transform duration-300 ease-out group-hover:scale-x-100" />
-                    <span className="relative z-10 transition-colors duration-300 group-hover:text-background">
+                <div className="mt-6">
+                    <ActionButton
+                        href={link}
+                        external
+                        variant="outline"
+                        className="px-5 py-2 text-sm"
+                        icon={
+                            <Image
+                                src="/icons/redirect.svg"
+                                alt=""
+                                aria-hidden="true"
+                                width={14}
+                                height={14}
+                                className="invert transition-[filter] duration-300 group-hover:invert-0"
+                            />
+                        }
+                    >
                         Ver projeto
-                    </span>
-                    <Image
-                        src="/icons/redirect.svg"
-                        alt=""
-                        aria-hidden="true"
-                        width={14}
-                        height={14}
-                        className="relative z-10 invert transition-all duration-300 group-hover:invert-0"
-                    />
-                </a>
+                    </ActionButton>
+                </div>
             </div>
         </div>
     );
@@ -123,6 +120,7 @@ function ProjectPanel({
 export default function HorizontalProjects() {
     const sectionRef = useRef<HTMLDivElement>(null);
     const trackRef = useRef<HTMLDivElement>(null);
+    const progressRef = useRef<HTMLSpanElement>(null);
 
     useGSAP(
         () => {
@@ -138,6 +136,11 @@ export default function HorizontalProjects() {
                     const getDistance = () =>
                         track.scrollWidth - window.innerWidth;
 
+                    // quickSetter não aloca nada por frame, ao contrário de gsap.set
+                    const setProgress = progressRef.current
+                        ? gsap.quickSetter(progressRef.current, "scaleX")
+                        : null;
+
                     const horizontal = gsap.to(track, {
                         x: () => -getDistance(),
                         ease: "none",
@@ -149,6 +152,13 @@ export default function HorizontalProjects() {
                             end: () => "+=" + getDistance(),
                             invalidateOnRefresh: true,
                             anticipatePin: 1,
+                            onUpdate: (self) => setProgress?.(self.progress),
+                            // promove a camada só enquanto o pin está ativo
+                            onToggle: (self) =>
+                                track.classList.toggle(
+                                    "will-change-transform",
+                                    self.isActive
+                                ),
                         },
                     });
 
@@ -168,7 +178,29 @@ export default function HorizontalProjects() {
                             });
                         });
 
+                    // imagem desliza mais devagar que o painel
+                    gsap.utils
+                        .toArray<HTMLElement>(".panel-media", track)
+                        .forEach((media) => {
+                            gsap.fromTo(
+                                media,
+                                { xPercent: -6 },
+                                {
+                                    xPercent: 6,
+                                    ease: "none",
+                                    scrollTrigger: {
+                                        trigger: media,
+                                        containerAnimation: horizontal,
+                                        start: "left right",
+                                        end: "right left",
+                                        scrub: true,
+                                    },
+                                }
+                            );
+                        });
+
                     return () => {
+                        track.classList.remove("will-change-transform");
                         horizontal.scrollTrigger?.kill();
                         horizontal.kill();
                     };
@@ -185,7 +217,7 @@ export default function HorizontalProjects() {
                 <TitlePanel />
                 {projects.map((project, index) => (
                     <Reveal key={project.title} y={24} delay={index * 0.1}>
-                        <ProjectPanel {...project} />
+                        <ProjectPanel project={project} index={index} />
                     </Reveal>
                 ))}
                 <CTAPanel />
@@ -194,18 +226,26 @@ export default function HorizontalProjects() {
             {/* Desktop: trilho horizontal pinado */}
             <div
                 ref={trackRef}
-                className="hidden w-max gap-10 py-8 pr-[10vw] pl-[8vw] will-change-transform lg:flex"
+                className="hidden w-max gap-10 py-8 pr-[10vw] pl-[8vw] lg:flex"
             >
-                <TitlePanel className="panel-inner w-[32vw] shrink-0" />
-                {projects.map((project) => (
+                <TitlePanel className="panel-inner w-[36vw] shrink-0" />
+                {projects.map((project, index) => (
                     <div
                         key={project.title}
-                        className="panel-inner w-[60vw] shrink-0"
+                        className="panel-inner w-[42vw] max-w-[620px] shrink-0"
                     >
-                        <ProjectPanel {...project} />
+                        <ProjectPanel project={project} index={index} />
                     </div>
                 ))}
-                <CTAPanel className="panel-inner w-[32vw] shrink-0" />
+                <CTAPanel className="panel-inner w-[36vw] shrink-0" />
+            </div>
+
+            {/* barra de progresso do trilho */}
+            <div className="absolute inset-x-[8vw] bottom-2 hidden h-px bg-line lg:block">
+                <span
+                    ref={progressRef}
+                    className="block h-full origin-left scale-x-0 bg-accent"
+                />
             </div>
         </div>
     );

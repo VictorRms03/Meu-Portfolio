@@ -1,9 +1,14 @@
 "use client";
 
 import { useRef } from "react";
-import { gsap, useGSAP } from "@/lib/gsap";
+import { gsap, useGSAP, onMotion } from "@/lib/gsap";
 
-export default function TimelineRail() {
+interface TimelineRailProps {
+    /** posicionamento do trilho — o pai precisa ser relative */
+    className?: string;
+}
+
+export default function TimelineRail({ className }: TimelineRailProps) {
     const containerRef = useRef<HTMLDivElement>(null);
     const lineRef = useRef<SVGLineElement>(null);
 
@@ -12,11 +17,12 @@ export default function TimelineRail() {
             if (!lineRef.current) return;
             const mm = gsap.matchMedia();
 
-            mm.add("(prefers-reduced-motion: reduce)", () => {
-                gsap.set(lineRef.current, { drawSVG: "100%" });
-            });
+            onMotion(mm, (reduced) => {
+                if (reduced) {
+                    gsap.set(lineRef.current, { drawSVG: "100%" });
+                    return;
+                }
 
-            mm.add("(prefers-reduced-motion: no-preference)", () => {
                 gsap.fromTo(
                     lineRef.current,
                     { drawSVG: "0%" },
@@ -25,8 +31,8 @@ export default function TimelineRail() {
                         ease: "none",
                         scrollTrigger: {
                             trigger: containerRef.current?.parentElement,
-                            start: "top 75%",
-                            end: "bottom 85%",
+                            start: "top 78%",
+                            end: "bottom 82%",
                             scrub: 0.6,
                         },
                     }
@@ -39,21 +45,40 @@ export default function TimelineRail() {
     return (
         <div
             ref={containerRef}
-            className="pointer-events-none absolute top-1 bottom-1 left-4 w-px -translate-x-1/2"
+            aria-hidden="true"
+            className={`pointer-events-none absolute w-[3px] ${className ?? ""}`}
         >
             <svg
                 className="h-full w-full overflow-visible"
                 viewBox="0 0 2 100"
                 preserveAspectRatio="none"
-                aria-hidden="true"
             >
                 <defs>
-                    <linearGradient id="railGrad" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stopColor="var(--accent)" stopOpacity="0.9" />
+                    {/*
+                     * três paradas: uma cor por tipo de experiência.
+                     * gradientUnits="userSpaceOnUse" é obrigatório aqui: uma
+                     * <line> vertical tem bounding box de largura ZERO, e a
+                     * spec manda não pintar gradiente objectBoundingBox (o
+                     * padrão) sobre bbox degenerada — o trilho sumia inteiro.
+                     */}
+                    <linearGradient
+                        id="railGrad"
+                        gradientUnits="userSpaceOnUse"
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="100"
+                    >
+                        <stop offset="0%" stopColor="var(--accent)" />
+                        <stop
+                            offset="50%"
+                            stopColor="var(--accent-3)"
+                            stopOpacity="0.85"
+                        />
                         <stop
                             offset="100%"
-                            stopColor="var(--accent)"
-                            stopOpacity="0.15"
+                            stopColor="var(--accent-2)"
+                            stopOpacity="0.6"
                         />
                     </linearGradient>
                 </defs>
@@ -64,7 +89,7 @@ export default function TimelineRail() {
                     x2="1"
                     y2="100"
                     stroke="url(#railGrad)"
-                    strokeWidth="2"
+                    strokeWidth="3"
                     vectorEffect="non-scaling-stroke"
                 />
             </svg>

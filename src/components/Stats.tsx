@@ -5,8 +5,8 @@ import SplitHeading from "@/components/motion/SplitHeading";
 
 export default function Stats() {
     return (
-        <section id="stats" className="relative overflow-hidden">
-            <Container className="max-w-11/12 md:max-w-9/12 flex justify-center pt-16">
+        <section id="stats" className="relative overflow-hidden pt-8 pb-12">
+            <Container className="max-w-11/12 md:max-w-9/12 flex justify-center">
                 <SplitHeading as="div">
                     <SectionHeading
                         prefix="Em"

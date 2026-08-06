@@ -51,7 +51,7 @@ export default function Preloader() {
                 })
                 .to(counter, {
                     value: 100,
-                    duration: 1.6,
+                    duration: 1.1,
                     ease: "power2.inOut",
                     snap: { value: 1 },
                     onUpdate: () => {
@@ -67,9 +67,9 @@ export default function Preloader() {
                     ".curtain",
                     {
                         yPercent: -100,
-                        duration: 1.1,
+                        duration: 0.9,
                         ease: "expo.inOut",
-                        stagger: 0.07,
+                        stagger: 0.06,
                     },
                     "<"
                 );

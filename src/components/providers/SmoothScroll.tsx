@@ -23,7 +23,9 @@ export default function SmoothScroll({ children }: SmoothScrollProps) {
             const smoother = ScrollSmoother.create({
                 wrapper: wrapper.current,
                 content: wrapper.current?.firstElementChild,
-                smooth: 1.2,
+                // 0.7s: macio o bastante para ler como inércia, curto o bastante
+                // para não virar atraso perceptível entre a roda e a página
+                smooth: 0.7,
                 effects: true,
                 smoothTouch: 0,
                 normalizeScroll: false,

@@ -8,7 +8,7 @@ import SmoothScroll from "@/components/providers/SmoothScroll";
 import PageBackdrop from "@/components/motion/PageBackdrop";
 import SectionThemer from "@/components/motion/SectionThemer";
 import Preloader from "@/components/motion/Preloader";
-import Cursor from "@/components/motion/Cursor";
+import PointerGlow from "@/components/motion/PointerGlow";
 
 export const metadata: Metadata = {
     title: "Victor Ramos - Portfólio",
@@ -33,11 +33,19 @@ export default function RootLayout({
                         [data-reveal],
                         [data-reveal-child] > *,
                         .skill-card,
+                        .stat-cell,
+                        .stat-rule,
+                        .entry-card,
+                        .entry-dot,
                         .split-heading,
                         .hero-line,
-                        .hero-fade {
+                        .hero-fade,
+                        .highlight-text {
                             opacity: 1 !important;
                             transform: none !important;
+                        }
+                        .portrait-clip {
+                            clip-path: none !important;
                         }
                         #preloader {
                             display: none !important;
@@ -48,8 +56,8 @@ export default function RootLayout({
                 <MotionProvider>
                     {/* elementos position:fixed ficam FORA do #smooth-wrapper */}
                     <PageBackdrop />
+                    <PointerGlow />
                     <Preloader />
-                    <Cursor />
                     <Header />
                     <SectionThemer />
 

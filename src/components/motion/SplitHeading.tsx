@@ -1,13 +1,15 @@
 "use client";
 
 import { ElementType, ReactNode, useRef } from "react";
-import { gsap, useGSAP, SplitText } from "@/lib/gsap";
+import { gsap, useGSAP, SplitText, onMotion } from "@/lib/gsap";
 
 interface SplitHeadingProps {
     as?: ElementType;
     className?: string;
     children: ReactNode;
     start?: string;
+    /** "lines" revela linha a linha com máscara; "chars" cascateia caractere a caractere */
+    variant?: "lines" | "chars";
 }
 
 export default function SplitHeading({
@@ -15,6 +17,7 @@ export default function SplitHeading({
     className,
     children,
     start = "top 85%",
+    variant = "lines",
 }: SplitHeadingProps) {
     const ref = useRef<HTMLElement>(null);
 
@@ -25,28 +28,53 @@ export default function SplitHeading({
 
             const mm = gsap.matchMedia();
 
-            mm.add("(prefers-reduced-motion: reduce)", () => {
-                gsap.set(el, { opacity: 1 });
-            });
+            onMotion(mm, (reduced) => {
+                if (reduced) {
+                    gsap.set(el, { opacity: 1 });
+                    return;
+                }
 
-            mm.add("(prefers-reduced-motion: no-preference)", () => {
                 let split: ReturnType<typeof SplitText.create> | undefined;
 
                 document.fonts.ready.then(() => {
                     if (!ref.current) return;
+
                     split = SplitText.create(el, {
-                        type: "lines,words",
+                        type:
+                            variant === "chars"
+                                ? "chars,words,lines"
+                                : "lines,words",
                         mask: "lines",
                         autoSplit: true,
                         aria: "auto",
                         onSplit(self) {
                             gsap.set(el, { opacity: 1 });
+
+                            if (variant === "chars") {
+                                return gsap.from(self.chars, {
+                                    yPercent: 110,
+                                    opacity: 0,
+                                    duration: 0.8,
+                                    ease: "power4.out",
+                                    stagger: 0.022,
+                                    scrollTrigger: {
+                                        trigger: el,
+                                        start,
+                                        once: true,
+                                    },
+                                });
+                            }
+
                             return gsap.from(self.lines, {
                                 yPercent: 110,
                                 duration: 1,
                                 ease: "expo.out",
                                 stagger: 0.08,
-                                scrollTrigger: { trigger: el, start, once: true },
+                                scrollTrigger: {
+                                    trigger: el,
+                                    start,
+                                    once: true,
+                                },
                             });
                         },
                     });
@@ -55,7 +83,7 @@ export default function SplitHeading({
                 return () => split?.revert();
             });
         },
-        { scope: ref }
+        { scope: ref, dependencies: [variant, start] }
     );
 
     return (

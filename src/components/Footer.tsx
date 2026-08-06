@@ -1,9 +1,8 @@
 import Image from "next/image";
-import Link from "next/link";
 import Container from "@/components/ui/Container";
 import SocialButton from "@/components/ui/SocialButton";
 import AnchorLink from "@/components/motion/AnchorLink";
-import Magnetic from "@/components/motion/Magnetic";
+import ActionButton from "@/components/ui/ActionButton";
 import { navLinks } from "@/data/navigation";
 import { contactSocials } from "@/data/socials";
 
@@ -28,6 +27,7 @@ export default function Footer() {
                                 alt="Foto Victor Ramos"
                                 width={44}
                                 height={44}
+                                quality={70}
                                 className="rounded-full object-cover transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"
                             />
                             Victor Ramos
@@ -70,27 +70,26 @@ export default function Footer() {
                                 />
                             ))}
                         </div>
-                        <Magnetic className="mt-2">
-                            <Link
+                        <div className="mt-2">
+                            <ActionButton
                                 href="https://github.com/VictorRms03/Meu-Portfolio"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full border-2 border-accent px-5 py-2 text-sm font-medium text-accent transition-all duration-300 hover:shadow-glow"
+                                external
+                                variant="outline"
+                                className="px-5 py-2 text-sm"
+                                icon={
+                                    <Image
+                                        src="/icons/redirect.svg"
+                                        alt=""
+                                        aria-hidden="true"
+                                        width={14}
+                                        height={14}
+                                        className="invert transition-[filter] duration-300 group-hover:invert-0"
+                                    />
+                                }
                             >
-                                <span className="absolute inset-0 z-0 origin-left scale-x-0 bg-accent transition-transform duration-300 ease-out group-hover:scale-x-100" />
-                                <span className="relative z-10 transition-colors duration-300 group-hover:text-background">
-                                    Ver código no GitHub
-                                </span>
-                                <Image
-                                    src="/icons/redirect.svg"
-                                    alt=""
-                                    aria-hidden="true"
-                                    width={14}
-                                    height={14}
-                                    className="relative z-10 invert transition-all duration-300 group-hover:invert-0"
-                                />
-                            </Link>
-                        </Magnetic>
+                                Ver código no GitHub
+                            </ActionButton>
+                        </div>
                     </div>
                 </div>
 
@@ -104,7 +103,7 @@ export default function Footer() {
                         <AnchorLink
                             href="#hero"
                             aria-label="Voltar ao topo"
-                            className="flex h-8 w-8 items-center justify-center rounded-full border border-line text-muted transition-all duration-300 hover:-translate-y-0.5 hover:border-accent hover:text-accent"
+                            className="flex h-8 w-8 items-center justify-center rounded-full border border-line text-muted transition-[transform,border-color,color] duration-300 hover:-translate-y-0.5 hover:border-accent hover:text-accent"
                         >
                             <svg
                                 className="h-4 w-4"

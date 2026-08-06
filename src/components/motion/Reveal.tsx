@@ -1,7 +1,7 @@
 "use client";
 
 import { ElementType, ReactNode, useRef } from "react";
-import { gsap, useGSAP } from "@/lib/gsap";
+import { gsap, useGSAP, onMotion } from "@/lib/gsap";
 
 interface RevealProps {
     children: ReactNode;
@@ -40,11 +40,12 @@ export default function Reveal({
 
             const mm = gsap.matchMedia();
 
-            mm.add("(prefers-reduced-motion: reduce)", () => {
-                gsap.set(targets, { opacity: 1, x: 0, y: 0 });
-            });
+            onMotion(mm, (reduced) => {
+                if (reduced) {
+                    gsap.set(targets, { opacity: 1, x: 0, y: 0 });
+                    return;
+                }
 
-            mm.add("(prefers-reduced-motion: no-preference)", () => {
                 gsap.fromTo(
                     targets,
                     { opacity: 0, y, x },

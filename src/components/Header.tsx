@@ -1,11 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import Container from "@/components/ui/Container";
 import AnchorLink from "@/components/motion/AnchorLink";
-import Magnetic from "@/components/motion/Magnetic";
+import ActionButton from "@/components/ui/ActionButton";
 import { gsap, useGSAP, ScrollTrigger } from "@/lib/gsap";
 import { navLinks } from "@/data/navigation";
 
@@ -23,25 +22,23 @@ interface CurriculumButtonProps {
 
 function CurriculumButton({ onClick, className = "" }: CurriculumButtonProps) {
     return (
-        <Link
+        <ActionButton
             href="/archives/curriculum.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
+            external
             onClick={onClick}
-            className={`group relative flex items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-accent bg-accent px-5 py-2 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-glow ${className}`}
-        >
-            <span className="absolute inset-0 z-0 origin-left scale-x-0 bg-white transition-transform duration-300 ease-out group-hover:scale-x-100" />
-            <span className="relative z-10 flex items-center gap-2">
-                <span className="text-background">Currículo</span>
+            className={`px-5 py-2 text-sm ${className}`}
+            icon={
                 <Image
                     src="/icons/download.svg"
-                    alt="icone download"
+                    alt=""
+                    aria-hidden="true"
                     width={15}
                     height={15}
-                    className="invert"
                 />
-            </span>
-        </Link>
+            }
+        >
+            Currículo
+        </ActionButton>
     );
 }
 
@@ -50,7 +47,7 @@ function NavButton({ href, label, onClick, isActive }: NavButtonProps) {
         <AnchorLink
             href={href}
             onClick={onClick}
-            className={`relative pb-1 transition-colors after:absolute after:left-0 after:-bottom-0.5 after:h-0.5 after:bg-accent after:transition-all after:duration-300 ${
+            className={`relative pb-1 transition-colors after:absolute after:left-0 after:-bottom-0.5 after:h-0.5 after:bg-accent after:transition-[width] after:duration-300 ${
                 isActive
                     ? "text-accent after:w-full"
                     : "text-muted hover:text-foreground after:w-0 hover:after:w-full"
@@ -129,6 +126,8 @@ export default function Header() {
                             alt="Foto Victor Ramos"
                             width={40}
                             height={40}
+                            quality={70}
+                            priority
                             className="rounded-full object-cover transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"
                         />
                         Victor Ramos
@@ -144,17 +143,17 @@ export default function Header() {
                     aria-controls="mobile-menu"
                 >
                     <span
-                        className={`absolute left-0 h-0.5 w-6 rounded bg-foreground transition-all duration-300 ${
+                        className={`absolute left-0 h-0.5 w-6 rounded bg-foreground transition-[top,transform] duration-300 ${
                             isOpen ? "top-1/2 -translate-y-1/2 rotate-45" : "top-0"
                         }`}
                     />
                     <span
-                        className={`absolute left-0 top-1/2 h-0.5 w-6 -translate-y-1/2 rounded bg-foreground transition-all duration-300 ${
+                        className={`absolute left-0 top-1/2 h-0.5 w-6 -translate-y-1/2 rounded bg-foreground transition-opacity duration-300 ${
                             isOpen ? "opacity-0" : "opacity-100"
                         }`}
                     />
                     <span
-                        className={`absolute left-0 h-0.5 w-6 rounded bg-foreground transition-all duration-300 ${
+                        className={`absolute left-0 h-0.5 w-6 rounded bg-foreground transition-[bottom,top,transform] duration-300 ${
                             isOpen ? "top-1/2 -translate-y-1/2 -rotate-45" : "bottom-0"
                         }`}
                     />
@@ -175,9 +174,7 @@ export default function Header() {
 
                 {/* Botão currículo (desktop) */}
                 <div className="hidden lg:flex">
-                    <Magnetic>
-                        <CurriculumButton />
-                    </Magnetic>
+                    <CurriculumButton />
                 </div>
             </Container>
 
@@ -186,7 +183,7 @@ export default function Header() {
                 id="mobile-menu"
                 aria-hidden={!isOpen}
                 inert={!isOpen}
-                className={`lg:hidden grid transition-all duration-300 ease-in-out ${
+                className={`lg:hidden grid transition-[grid-template-rows,opacity] duration-300 ease-in-out ${
                     isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
                 }`}
             >

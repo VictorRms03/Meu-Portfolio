@@ -1,5 +1,4 @@
 import Hero from "@/components/Hero";
-import Marquee from "@/components/motion/Marquee";
 import Skills from "@/components/Skills";
 import Stats from "@/components/Stats";
 import Experience from "@/components/Experience";
@@ -11,7 +10,6 @@ export default function Home() {
     return (
         <>
             <Hero />
-            <Marquee />
             <Skills />
             <Stats />
             <Experience />
