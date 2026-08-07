@@ -25,7 +25,7 @@ export default function GetInTouch() {
                     variant="chars"
                     className="text-[clamp(2.25rem,7vw,4.5rem)] leading-[1.05] font-extrabold tracking-tight"
                 >
-                    Vamos construir algo?
+                    Vamos construir algo juntos?
                 </SplitHeading>
 
                 <Reveal>

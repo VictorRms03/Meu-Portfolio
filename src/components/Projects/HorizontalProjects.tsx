@@ -157,21 +157,28 @@ export default function HorizontalProjects() {
                         },
                     });
 
-                    gsap.utils
-                        .toArray<HTMLElement>(".panel-inner", track)
-                        .forEach((el) => {
-                            gsap.from(el, {
-                                y: 60,
-                                opacity: 0,
-                                duration: 0.7,
-                                scrollTrigger: {
-                                    trigger: el,
-                                    containerAnimation: horizontal,
-                                    start: "left 85%",
-                                    toggleActions: "play none none reverse",
-                                },
-                            });
-                        });
+                    // A entrada é pelo scroll VERTICAL da seção, não pelo
+                    // containerAnimation. Amarrada ao horizontal, ela só podia
+                    // disparar depois do pin engatar — e o pin engata em
+                    // "top top", quando a seção já ocupa a tela inteira. O
+                    // resultado era a seção chegar vazia e os painéis surgirem
+                    // todos de uma vez no instante do engate.
+                    gsap.fromTo(
+                        gsap.utils.toArray<HTMLElement>(".panel-inner", track),
+                        { opacity: 0, y: 48 },
+                        {
+                            opacity: 1,
+                            y: 0,
+                            duration: 0.9,
+                            stagger: 0.12,
+                            ease: "power3.out",
+                            scrollTrigger: {
+                                trigger: section,
+                                start: "top 80%",
+                                once: true,
+                            },
+                        }
+                    );
 
                     // imagem desliza mais devagar que o painel
                     gsap.utils
@@ -208,7 +215,7 @@ export default function HorizontalProjects() {
     return (
         <div ref={sectionRef} className="relative overflow-hidden">
             {/* Mobile/tablet: pilha vertical, sem pin */}
-            <div className="flex flex-col gap-8 px-6 lg:hidden">
+            <div className="projects-stack flex flex-col gap-8 px-6 lg:hidden">
                 <TitlePanel />
                 {projects.map((project, index) => (
                     <Reveal key={project.title} y={24} delay={index * 0.1}>
@@ -221,7 +228,7 @@ export default function HorizontalProjects() {
             {/* Desktop: trilho horizontal pinado */}
             <div
                 ref={trackRef}
-                className="hidden w-max gap-10 py-8 pr-[10vw] pl-[8vw] lg:flex"
+                className="projects-track hidden w-max gap-10 py-8 pr-[10vw] pl-[8vw] lg:flex"
             >
                 <TitlePanel className="panel-inner w-[36vw] shrink-0" />
                 {projects.map((project, index) => (
@@ -236,7 +243,7 @@ export default function HorizontalProjects() {
             </div>
 
             {/* barra de progresso do trilho */}
-            <div className="absolute inset-x-[8vw] bottom-2 hidden h-px bg-line lg:block">
+            <div className="projects-progress absolute inset-x-[8vw] bottom-2 hidden h-px bg-line lg:block">
                 <span
                     ref={progressRef}
                     className="block h-full origin-left scale-x-0 bg-accent"

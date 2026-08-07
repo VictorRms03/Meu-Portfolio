@@ -37,6 +37,7 @@ export default function RootLayout({
                         .stat-rule,
                         .entry-card,
                         .entry-dot,
+                        .panel-inner,
                         .split-heading,
                         .hero-line,
                         .hero-fade,

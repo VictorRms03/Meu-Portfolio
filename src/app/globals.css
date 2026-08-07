@@ -71,8 +71,26 @@ body {
 .skill-card,
 .stat-cell,
 .entry-card,
-.entry-dot {
+.entry-dot,
+.panel-inner {
   opacity: 0;
+}
+
+/*
+ * Sem movimento, o trilho horizontal não tem pin nem scrub — os painéis 2 a 4
+ * ficariam inalcançáveis fora da tela. A pilha vertical assume o lugar dele.
+ */
+@media (prefers-reduced-motion: reduce) {
+  .projects-track,
+  .projects-progress {
+    display: none !important;
+  }
+  .projects-stack {
+    display: flex !important;
+  }
+  .panel-inner {
+    opacity: 1;
+  }
 }
 
 .stat-rule {
