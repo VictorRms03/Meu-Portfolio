@@ -5,6 +5,7 @@ import StarIcon from "@/components/icons/StarIcon";
 import {
     ExperienceType,
     TimelineEntry,
+    descriptionLabels,
     experienceLabels,
 } from "@/data/experience";
 
@@ -116,10 +117,34 @@ export default function TimelineItem({
                 {entry.description && (
                     <p className="mt-3 text-sm font-light text-muted">
                         <span className="font-semibold text-foreground">
-                            Principais atividades:{" "}
+                            {descriptionLabels[entry.type]}{" "}
                         </span>
                         {entry.description}
                     </p>
+                )}
+
+                {entry.tags && (
+                    <div
+                        className={`mt-4 flex flex-wrap gap-2 ${
+                            isLeft ? "md:justify-end" : ""
+                        }`}
+                    >
+                        {entry.tags.map((tag) => (
+                            <span
+                                key={tag}
+                                className="rounded-full border px-2.5 py-0.5 text-xs"
+                                style={{
+                                    color: brand,
+                                    borderColor:
+                                        "color-mix(in oklab, var(--brand) 35%, transparent)",
+                                    backgroundColor:
+                                        "color-mix(in oklab, var(--brand) 8%, transparent)",
+                                }}
+                            >
+                                {tag}
+                            </span>
+                        ))}
+                    </div>
                 )}
             </div>
         </article>

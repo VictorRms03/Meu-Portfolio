@@ -62,7 +62,11 @@ export default function About() {
                         </ScrollHighlightText>
 
                         <Reveal className="mt-10 flex justify-center xl:justify-start">
-                            <ActionButton href="#contato" variant="outline">
+                            <ActionButton
+                                href="#contato"
+                                variant="outline"
+                                effect="underline"
+                            >
                                 Fale comigo
                             </ActionButton>
                         </Reveal>

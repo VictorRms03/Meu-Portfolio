@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useRef } from "react";
 import Reveal from "@/components/motion/Reveal";
 import ActionButton from "@/components/ui/ActionButton";
+import ExternalLinkIcon from "@/components/icons/ExternalLinkIcon";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { gsap, useGSAP } from "@/lib/gsap";
 import { projects, Project } from "@/data/projects";
@@ -44,6 +45,7 @@ function CTAPanel({ className }: { className?: string }) {
                 href="https://github.com/VictorRms03"
                 external
                 variant="outline"
+                effect="shine"
             >
                 Mais no GitHub
             </ActionButton>
@@ -97,17 +99,10 @@ function ProjectPanel({
                         href={link}
                         external
                         variant="outline"
+                        // efeitos diferentes por card, para comparar lado a lado
+                        effect={index === 0 ? "fill" : "lift"}
                         className="px-5 py-2 text-sm"
-                        icon={
-                            <Image
-                                src="/icons/redirect.svg"
-                                alt=""
-                                aria-hidden="true"
-                                width={14}
-                                height={14}
-                                className="invert transition-[filter] duration-300 group-hover:invert-0"
-                            />
-                        }
+                        icon={<ExternalLinkIcon className="h-4 w-4" />}
                     >
                         Ver projeto
                     </ActionButton>

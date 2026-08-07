@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Container from "@/components/ui/Container";
+import ExternalLinkIcon from "@/components/icons/ExternalLinkIcon";
 import SocialButton from "@/components/ui/SocialButton";
 import AnchorLink from "@/components/motion/AnchorLink";
 import ActionButton from "@/components/ui/ActionButton";
@@ -75,17 +76,9 @@ export default function Footer() {
                                 href="https://github.com/VictorRms03/Meu-Portfolio"
                                 external
                                 variant="outline"
+                                effect="invert"
                                 className="px-5 py-2 text-sm"
-                                icon={
-                                    <Image
-                                        src="/icons/redirect.svg"
-                                        alt=""
-                                        aria-hidden="true"
-                                        width={14}
-                                        height={14}
-                                        className="invert transition-[filter] duration-300 group-hover:invert-0"
-                                    />
-                                }
+                                icon={<ExternalLinkIcon className="h-4 w-4" />}
                             >
                                 Ver código no GitHub
                             </ActionButton>

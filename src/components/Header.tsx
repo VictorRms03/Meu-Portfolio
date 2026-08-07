@@ -5,6 +5,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Container from "@/components/ui/Container";
 import AnchorLink from "@/components/motion/AnchorLink";
 import ActionButton from "@/components/ui/ActionButton";
+import DownloadIcon from "@/components/icons/DownloadIcon";
 import { gsap, useGSAP, ScrollTrigger } from "@/lib/gsap";
 import { navLinks } from "@/data/navigation";
 
@@ -25,17 +26,10 @@ function CurriculumButton({ onClick, className = "" }: CurriculumButtonProps) {
         <ActionButton
             href="/archives/curriculum.pdf"
             external
+            effect="shine"
             onClick={onClick}
-            className={`px-5 py-2 text-sm ${className}`}
-            icon={
-                <Image
-                    src="/icons/download.svg"
-                    alt=""
-                    aria-hidden="true"
-                    width={15}
-                    height={15}
-                />
-            }
+            className={`px-5 py-2 text-sm font-semibold ${className}`}
+            icon={<DownloadIcon className="h-4 w-4" />}
         >
             Currículo
         </ActionButton>

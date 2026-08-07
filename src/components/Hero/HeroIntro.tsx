@@ -108,8 +108,14 @@ export default function HeroIntro() {
                 </p>
 
                 <div className="hero-fade mt-10 flex flex-wrap items-center justify-center gap-4">
-                    <ActionButton href="#projetos">Ver projetos</ActionButton>
-                    <ActionButton href="#contato" variant="outline">
+                    <ActionButton href="#projetos" effect="expand">
+                        Ver projetos
+                    </ActionButton>
+                    <ActionButton
+                        href="#contato"
+                        variant="outline"
+                        effect="arrow"
+                    >
                         Fale comigo
                     </ActionButton>
                 </div>

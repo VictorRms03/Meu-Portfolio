@@ -22,7 +22,7 @@ export default function StatCounters() {
             onMotion(mm, (reduced) => {
                 if (reduced) {
                     gsap.set(".stat-cell", { opacity: 1 });
-                    gsap.set(".odometer-strip", { yPercent: restingY });
+                    gsap.set(".odometer-strip", { y: 0, yPercent: restingY });
                     gsap.set(".stat-rule", { scaleX: 1 });
                     return;
                 }
@@ -48,8 +48,14 @@ export default function StatCounters() {
 
                 gsap.fromTo(
                     ".odometer-strip",
-                    { yPercent: 0 },
+                    // y: 0 é obrigatório aqui. A fita carrega um transform
+                    // inline (a posição de repouso para quem está sem JS) que o
+                    // GSAP absorve como deslocamento base e SOMA ao yPercent —
+                    // o resultado era o dobro do deslocamento e a fita parava
+                    // depois do último dígito, mostrando vazio.
+                    { y: 0, yPercent: 0 },
                     {
+                        y: 0,
                         yPercent: restingY,
                         duration: 1.8,
                         stagger: 0.12,
