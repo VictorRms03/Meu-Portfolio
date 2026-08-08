@@ -1,79 +1,50 @@
-"use client";
-
-import Image from "next/image";
-import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import AboutPortrait from "./About/AboutPortrait";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
-
-const quickFacts = [
-    "22 anos",
-    "Desenvolvedor Full-Stack",
-    "Bacharel em Ciência da Computação",
-];
+import Reveal from "@/components/motion/Reveal";
+import SplitHeading from "@/components/motion/SplitHeading";
+import ScrollHighlightText from "@/components/motion/ScrollHighlightText";
+import ActionButton from "@/components/ui/ActionButton";
+import { currentAge } from "@/data/profile";
 
 export default function About() {
-    const ref = useRef<HTMLDivElement>(null);
-    const [visible, setVisible] = useState(false);
+    // server component: a idade é resolvida no servidor e chega pronta
+    const age = currentAge();
 
-    useEffect(() => {
-        const node = ref.current;
-        if (!node) return;
-
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setVisible(true);
-                    observer.disconnect();
-                }
-            },
-            { threshold: 0.2 }
-        );
-
-        observer.observe(node);
-        return () => observer.disconnect();
-    }, []);
+    const quickFacts = [
+        `${age} anos`,
+        "Desenvolvedor Full-Stack",
+        "Bacharel em Ciência da Computação",
+    ];
 
     return (
-        <section id="sobre" className="py-28 md:py-36 scroll-mt-20">
+        <section id="sobre" className="py-28 md:py-36">
             <Container className="max-w-11/12 md:max-w-9/12 px-6">
-                <div
-                    ref={ref}
-                    className={`flex flex-col xl:flex-row items-center justify-between gap-12 transition-all duration-700 ${
-                        visible
-                            ? "translate-y-0 opacity-100"
-                            : "translate-y-8 opacity-0"
-                    }`}
-                >
-                    <div className="relative shrink-0">
-                        <div className="absolute -right-4 -bottom-4 h-64 w-64 rounded-full bg-black md:h-80 md:w-80" />
-                        <div className="relative h-64 w-64 overflow-hidden rounded-full border-4 border-black shadow-xl md:h-80 md:w-80">
-                            <Image
-                                src="/images/victorRamos2.jpg"
-                                alt="Foto de Victor Ramos"
-                                fill
-                                sizes="(min-width: 768px) 320px, 256px"
-                                className="object-cover transition-all duration-500 hover:scale-105"
-                            />
-                        </div>
-                    </div>
+                <div className="flex flex-col items-center gap-16 xl:flex-row xl:items-start xl:justify-between">
+                    <AboutPortrait />
 
                     <div className="xl:w-1/2">
-                        <SectionHeading prefix="Sobre" highlight="Mim!" />
+                        <SplitHeading>
+                            <SectionHeading prefix="Sobre" highlight="Mim!" />
+                        </SplitHeading>
 
-                        <div className="mt-6 flex flex-wrap justify-center gap-2 xl:justify-start xl:mt-8">
+                        <Reveal
+                            childrenSelector=".fact"
+                            stagger={0.08}
+                            className="mt-6 flex flex-wrap justify-center gap-2 xl:mt-8 xl:justify-start"
+                        >
                             {quickFacts.map((fact) => (
                                 <span
                                     key={fact}
-                                    className="rounded-full border border-black/20 px-4 py-1 text-sm text-black/70"
+                                    className="fact rounded-full border border-line px-4 py-1 text-sm text-muted"
                                 >
                                     {fact}
                                 </span>
                             ))}
-                        </div>
+                        </Reveal>
 
-                        <p className="mt-6">
-                            Olá! Tenho 22 anos e programo desde os 14 quando
+                        <ScrollHighlightText className="mt-8">
+                            Olá! Tenho {age} anos e programo desde os 14 quando
                             entrei para o curso técnico em informática, desde
                             então venho estudo e me apaixonando cada vez mais
                             pela área da tecnologia. Sou formado como Bacharel
@@ -84,25 +55,25 @@ export default function About() {
                             linguagens e ferramentas e tenho facilidade em
                             aprender coisas novas e estou sempre em busca de
                             novos desafios.
-                        </p>
-                        <p className="mt-6">
+                        </ScrollHighlightText>
+
+                        <ScrollHighlightText className="mt-6">
                             Além da programação, sou uma pessoa comunicativa
                             que gosta de conversas sobre basicamente qualquer
                             assunto! Entre meus principais hobbies estão ouvir
                             música e jogos, o que ajuda a recarregar as
                             energias e manter a criatividade em dia.
-                        </p>
+                        </ScrollHighlightText>
 
-                        <Link
-                            href="#contato"
-                            scroll={true}
-                            className="group relative mt-8 inline-flex items-center justify-center overflow-hidden rounded-full border-2 border-black px-6 py-2.5 font-medium text-black transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/20"
-                        >
-                            <span className="absolute inset-0 z-0 origin-left scale-x-0 bg-black transition-transform duration-300 ease-out group-hover:scale-x-100" />
-                            <span className="relative z-10 transition-colors duration-300 group-hover:text-white">
+                        <Reveal className="mt-10 flex justify-center xl:justify-start">
+                            <ActionButton
+                                href="#contato"
+                                variant="outline"
+                                effect="underline"
+                            >
                                 Fale comigo
-                            </span>
-                        </Link>
+                            </ActionButton>
+                        </Reveal>
                     </div>
                 </div>
             </Container>

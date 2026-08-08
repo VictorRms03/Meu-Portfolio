@@ -1,8 +1,9 @@
 import Image from "next/image";
-import Link from "next/link";
 import Container from "@/components/ui/Container";
-import WaveDivider from "@/components/ui/WaveDivider";
+import ExternalLinkIcon from "@/components/icons/ExternalLinkIcon";
 import SocialButton from "@/components/ui/SocialButton";
+import AnchorLink from "@/components/motion/AnchorLink";
+import ActionButton from "@/components/ui/ActionButton";
 import { navLinks } from "@/data/navigation";
 import { contactSocials } from "@/data/socials";
 
@@ -12,16 +13,14 @@ export default function Footer() {
     const year = new Date().getFullYear();
 
     return (
-        <footer className="relative bg-black text-white">
-            <WaveDivider position="top" />
+        <footer className="relative">
             <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-violet-400/60 to-transparent" />
 
             <Container className="max-w-11/12 xl:max-w-9/12 px-6 pt-16 pb-8">
                 <div className="flex flex-col items-center gap-12 text-center lg:flex-row lg:items-start lg:justify-between lg:text-left">
                     <div className="flex flex-col items-center gap-4 lg:items-start">
-                        <Link
+                        <AnchorLink
                             href="#hero"
-                            scroll={true}
                             className="group flex items-center gap-3 text-xl font-bold"
                         >
                             <Image
@@ -29,11 +28,12 @@ export default function Footer() {
                                 alt="Foto Victor Ramos"
                                 width={44}
                                 height={44}
+                                quality={70}
                                 className="rounded-full object-cover transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"
                             />
                             Victor Ramos
-                        </Link>
-                        <p className="max-w-xs text-sm text-white/60">
+                        </AnchorLink>
+                        <p className="max-w-xs text-sm text-muted">
                             Desenvolvedor Fullstack apaixonado por criar
                             experiências simples, rápidas e bem construídas.
                         </p>
@@ -44,14 +44,13 @@ export default function Footer() {
                             Navegação
                         </span>
                         {footerLinks.map((navLink) => (
-                            <Link
+                            <AnchorLink
                                 key={navLink.href}
                                 href={navLink.href}
-                                scroll={true}
-                                className="text-white/60 transition-colors hover:text-white"
+                                className="text-muted transition-colors hover:text-foreground"
                             >
                                 {navLink.label}
-                            </Link>
+                            </AnchorLink>
                         ))}
                     </nav>
 
@@ -72,40 +71,32 @@ export default function Footer() {
                                 />
                             ))}
                         </div>
-                        <Link
-                            href="https://github.com/VictorRms03/Meu-Portfolio"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group relative mt-2 inline-flex items-center gap-2 overflow-hidden rounded-full border-2 border-white px-5 py-2 text-sm font-medium transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-white/10"
-                        >
-                            <span className="absolute inset-0 z-0 origin-left scale-x-0 bg-white transition-transform duration-300 ease-out group-hover:scale-x-100" />
-                            <span className="relative z-10 transition-colors duration-300 group-hover:text-black">
+                        <div className="mt-2">
+                            <ActionButton
+                                href="https://github.com/VictorRms03/Meu-Portfolio"
+                                external
+                                variant="outline"
+                                effect="invert"
+                                className="px-5 py-2 text-sm"
+                                icon={<ExternalLinkIcon className="h-4 w-4" />}
+                            >
                                 Ver código no GitHub
-                            </span>
-                            <Image
-                                src="/icons/redirect.svg"
-                                alt=""
-                                aria-hidden="true"
-                                width={14}
-                                height={14}
-                                className="relative z-10 invert transition-all duration-300 group-hover:invert-0"
-                            />
-                        </Link>
+                            </ActionButton>
+                        </div>
                     </div>
                 </div>
 
-                <div className="mt-12 flex flex-col-reverse items-center gap-4 border-t border-white/10 pt-6 text-sm text-white/50 lg:flex-row lg:justify-between">
+                <div className="mt-12 flex flex-col-reverse items-center gap-4 border-t border-line pt-6 text-sm text-muted lg:flex-row lg:justify-between">
                     <span>
                         &copy; {year} Victor Ramos. Todos os direitos
                         reservados.
                     </span>
                     <div className="flex items-center gap-4">
                         <span>Feito com Next.js e Tailwind CSS</span>
-                        <Link
+                        <AnchorLink
                             href="#hero"
-                            scroll={true}
                             aria-label="Voltar ao topo"
-                            className="flex h-8 w-8 items-center justify-center rounded-full border border-white/20 text-white/50 transition-all duration-300 hover:-translate-y-0.5 hover:border-violet-400/60 hover:text-white"
+                            className="flex h-8 w-8 items-center justify-center rounded-full border border-line text-muted transition-[transform,border-color,color] duration-300 hover:-translate-y-0.5 hover:border-accent hover:text-accent"
                         >
                             <svg
                                 className="h-4 w-4"
@@ -120,7 +111,7 @@ export default function Footer() {
                                     d="M5 15l7-7 7 7"
                                 />
                             </svg>
-                        </Link>
+                        </AnchorLink>
                     </div>
                 </div>
             </Container>

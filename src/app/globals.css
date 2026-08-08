@@ -1,43 +1,127 @@
 @import "tailwindcss";
 
-html {
-  scroll-behavior: smooth;
-}
-
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: dark;
+
+  --bg: #0a0a0b;
+  --fg: #ededf0;
+  --surface: #131318;
+  --muted: #8f8fa0;
+  --accent: #a78bfa;
+  --accent-strong: #7c3aed;
+  /* cores por tipo de experiência: trabalho / formação / extensão */
+  --accent-2: #38bdf8;
+  --accent-3: #f472b6;
+  --line: rgba(255, 255, 255, 0.08);
+  --header-h: 4.5rem;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: var(--bg);
+  --color-foreground: var(--fg);
+  --color-surface: var(--surface);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-2: var(--accent-2);
+  --color-accent-3: var(--accent-3);
+  --color-line: var(--line);
+  --font-display: var(--font-sora);
+  --shadow-glow: 0 0 48px -12px var(--accent);
+}
+
+@utility glass {
+  background-color: color-mix(in oklab, var(--fg) 4%, transparent);
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--line);
+}
+
+/*
+ * Sem backdrop-filter de propósito: ele re-amostra e desfoca a região atrás do
+ * elemento a cada frame de scroll, e com o header fixo isso é custo constante.
+ * Sobre fundo escuro um translúcido sólido é visualmente equivalente e grátis.
+ */
+@utility glass-blur {
+  background-color: transparent;
+  border-bottom: 1px solid transparent;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: transparent;
+  color: var(--fg);
 }
 
-@keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
+::selection {
+  background: var(--accent);
+  color: #0a0a0b;
+}
+
+[data-reveal] {
+  opacity: 0;
+}
+
+[data-reveal-child] > * {
+  opacity: 0;
+}
+
+.skill-card,
+.stat-cell,
+.entry-card,
+.entry-dot,
+.panel-inner {
+  opacity: 0;
+}
+
+/*
+ * Sem movimento, o trilho horizontal não tem pin nem scrub — os painéis 2 a 4
+ * ficariam inalcançáveis fora da tela. A pilha vertical assume o lugar dele.
+ */
+@media (prefers-reduced-motion: reduce) {
+  .projects-track,
+  .projects-progress {
+    display: none !important;
   }
-  to {
+  .projects-stack {
+    display: flex !important;
+  }
+  .panel-inner {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-12px);
-  }
+.stat-rule {
+  transform: scaleX(0);
+}
+
+.split-heading,
+.hero-line,
+.hero-fade,
+.highlight-text {
+  opacity: 0;
+}
+
+.portrait-clip {
+  clip-path: inset(100% 0% 0% 0%);
+}
+
+/*
+ * As palavras rotativas do Hero vivem todas na mesma célula de grid; sem o
+ * estado inicial do GSAP elas empilham e viram um borrão ilegível. O autoAlpha
+ * escreve visibility inline e sobrepõe isto normalmente — a regra existe só
+ * para que uma falha de JS mostre uma palavra, nunca quatro sobrepostas.
+ */
+.rotating-word:not(:first-child) {
+  visibility: hidden;
+}
+
+.is-scrolled {
+  background-color: color-mix(in oklab, var(--bg) 92%, transparent);
+  border-bottom-color: var(--line);
+  box-shadow: 0 8px 40px -12px rgba(0, 0, 0, 0.8);
 }
 
 @keyframes toast-in {

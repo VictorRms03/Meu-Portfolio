@@ -1,197 +1,43 @@
-"use client";
-
-import Image from "next/image";
-import { ReactElement, cloneElement, useEffect, useRef, useState } from "react";
 import GetInTouchSocials from "./GetInTouch/GetInTouchSocials";
-import SectionHeading from "@/components/ui/SectionHeading";
-import EnvelopeIcon from "@/components/icons/EnvelopeIcon";
-import PhoneIcon from "@/components/icons/PhoneIcon";
-import ClipboardIcon from "@/components/icons/ClipboardIcon";
-import CheckIcon from "@/components/icons/CheckIcon";
-
-const EMAIL = "victorrms03@gmail.com";
-const PHONE_DISPLAY = "+55 (19) 99587-3557";
-const PHONE_TEL = "+5519995873557";
-
-interface ContactLineProps {
-    icon: ReactElement<{ className?: string }>;
-    href: string;
-    label: string;
-    copyValue: string;
-    onCopied?: () => void;
-}
-
-function ContactLine({
-    icon,
-    href,
-    label,
-    copyValue,
-    onCopied,
-}: ContactLineProps) {
-    const [copied, setCopied] = useState(false);
-
-    const handleCopy = async () => {
-        await navigator.clipboard.writeText(copyValue);
-        setCopied(true);
-        onCopied?.();
-        setTimeout(() => setCopied(false), 2000);
-    };
-
-    return (
-        <div className="flex min-w-0 items-center justify-center gap-3 lg:justify-start">
-            <button
-                type="button"
-                onClick={handleCopy}
-                aria-label={`Copiar ${label}`}
-                className="flex h-14 w-14 items-center justify-center rounded-full border-2 border-black/10 text-black/70 transition-all duration-300 active:scale-95 hover:border-black hover:bg-black hover:text-white lg:hidden"
-            >
-                {copied ? (
-                    <CheckIcon className="h-5 w-5 text-violet-600" />
-                ) : (
-                    cloneElement(icon, { className: "h-5 w-5" })
-                )}
-            </button>
-
-            <span className="hidden h-9 w-9 shrink-0 items-center justify-center rounded-full border border-black/15 text-black/60 lg:flex">
-                {icon}
-            </span>
-            <a
-                href={href}
-                className="hidden min-w-0 break-words text-sm font-bold transition-colors hover:text-violet-600 sm:text-base lg:inline lg:text-2xl"
-            >
-                {label}
-            </a>
-            <button
-                type="button"
-                onClick={handleCopy}
-                aria-label={`Copiar ${label}`}
-                className="hidden h-8 w-8 shrink-0 items-center justify-center rounded-full text-black/40 transition-colors hover:bg-black/5 hover:text-black lg:flex"
-            >
-                {copied ? (
-                    <CheckIcon className="h-4 w-4 text-violet-600" />
-                ) : (
-                    <ClipboardIcon className="h-4 w-4" />
-                )}
-            </button>
-        </div>
-    );
-}
+import ContactLines from "./GetInTouch/ContactLines";
+import Reveal from "@/components/motion/Reveal";
+import SplitHeading from "@/components/motion/SplitHeading";
 
 export default function GetInTouch() {
-    const ref = useRef<HTMLDivElement>(null);
-    const [visible, setVisible] = useState(false);
-    const [toastMsg, setToastMsg] = useState<string | null>(null);
-    const [toastLeaving, setToastLeaving] = useState(false);
-    const toastTimers = useRef<{
-        hide?: ReturnType<typeof setTimeout>;
-        remove?: ReturnType<typeof setTimeout>;
-    }>({});
-
-    const showToast = (message: string) => {
-        if (toastTimers.current.hide) clearTimeout(toastTimers.current.hide);
-        if (toastTimers.current.remove)
-            clearTimeout(toastTimers.current.remove);
-
-        setToastLeaving(false);
-        setToastMsg(message);
-        toastTimers.current.hide = setTimeout(() => setToastLeaving(true), 2000);
-        toastTimers.current.remove = setTimeout(
-            () => setToastMsg(null),
-            2300
-        );
-    };
-
-    useEffect(() => {
-        const node = ref.current;
-        if (!node) return;
-
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setVisible(true);
-                    observer.disconnect();
-                }
-            },
-            { threshold: 0.2 }
-        );
-
-        observer.observe(node);
-        return () => observer.disconnect();
-    }, []);
-
-    useEffect(() => {
-        return () => {
-            if (toastTimers.current.hide) clearTimeout(toastTimers.current.hide);
-            if (toastTimers.current.remove)
-                clearTimeout(toastTimers.current.remove);
-        };
-    }, []);
-
     return (
         <section
             id="contato"
-            className="flex md:py-16 lg:max-w-11/12 xl:max-w-9/12 mx-auto py-12 lg:py-36"
+            className="relative mx-auto flex py-20 lg:max-w-11/12 lg:py-36 xl:max-w-9/12"
         >
             <div
-                ref={ref}
-                className={`mx-auto flex w-full min-w-0 flex-col lg:flex-row items-center justify-between gap-8 lg:gap-24 transition-all duration-700 ${
-                    visible
-                        ? "translate-y-0 opacity-100"
-                        : "translate-y-8 opacity-0"
-                }`}
-            >
-                <div className="hidden lg:flex w-1/2">
-                    <Image
-                        src="/images/helloPicture.svg"
-                        alt="Ilustração de dev"
-                        width={900}
-                        height={900}
-                        className="animate-[float_4s_ease-in-out_infinite]"
-                    />
-                </div>
-                <div className="lg:w-1/2 min-w-0 max-w-11/12 px-6 lg:px-0 lg:max-w-12/12 text-center lg:text-left">
-                    <SectionHeading
-                        prefix="Entre em"
-                        highlight="Contato!"
-                        className="text-5xl lg:text-6xl mb-3"
-                    />
-                    <p className="font-light">
-                        Estou sempre aberto a novas oportunidades e desafios
-                        como desenvolvedor!
-                    </p>
-                    <GetInTouchSocials />
+                aria-hidden="true"
+                className="pointer-events-none absolute top-0 left-1/2 h-[34rem] w-[34rem] -translate-x-1/2 -translate-y-1/3"
+                style={{
+                    background:
+                        "radial-gradient(circle closest-side, color-mix(in oklab, var(--accent) 18%, transparent), transparent)",
+                }}
+                data-speed="0.85"
+            />
 
-                    <div className="flex flex-row items-center justify-center gap-6 rounded-2xl border border-black/10 p-6 shadow-sm lg:flex-col lg:gap-4">
-                        <ContactLine
-                            icon={<EnvelopeIcon className="h-4 w-4" />}
-                            href={`mailto:${EMAIL}`}
-                            label={EMAIL}
-                            copyValue={EMAIL}
-                            onCopied={() => showToast("Email copiado!")}
-                        />
-                        <ContactLine
-                            icon={<PhoneIcon className="h-4 w-4" />}
-                            href={`tel:${PHONE_TEL}`}
-                            label={PHONE_DISPLAY}
-                            copyValue={PHONE_DISPLAY}
-                            onCopied={() => showToast("Telefone copiado!")}
-                        />
-                    </div>
-                </div>
-            </div>
-
-            {toastMsg && (
-                <div
-                    className={`pointer-events-none fixed bottom-6 left-1/2 z-50 flex items-center gap-2 rounded-full border-2 border-black bg-black px-5 py-3 text-sm font-medium text-white shadow-lg shadow-black/20 lg:hidden ${
-                        toastLeaving
-                            ? "animate-[toast-out_0.3s_ease-in_forwards]"
-                            : "animate-[toast-in_0.3s_ease-out_both]"
-                    }`}
+            <div className="relative mx-auto flex w-full max-w-3xl min-w-0 flex-col items-center gap-10 px-6 text-center lg:px-0">
+                <SplitHeading
+                    as="h2"
+                    variant="chars"
+                    className="text-[clamp(2.25rem,7vw,4.5rem)] leading-[1.05] font-extrabold tracking-tight"
                 >
-                    <CheckIcon className="h-4 w-4 text-violet-400" />
-                    {toastMsg}
-                </div>
-            )}
+                    Vamos construir algo juntos?
+                </SplitHeading>
+
+                <Reveal>
+                    <p className="max-w-md font-light text-muted">
+                        Estou sempre aberto a novas oportunidades e desafios
+                        como desenvolvedor.
+                    </p>
+                </Reveal>
+
+                <ContactLines />
+                <GetInTouchSocials />
+            </div>
         </section>
     );
 }
