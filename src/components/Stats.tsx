@@ -2,6 +2,7 @@ import StatCounters from "./Stats/StatCounters";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Container from "@/components/ui/Container";
 import SplitHeading from "@/components/motion/SplitHeading";
+import { buildStats } from "@/data/stats";
 
 export default function Stats() {
     return (
@@ -15,7 +16,9 @@ export default function Stats() {
                     />
                 </SplitHeading>
             </Container>
-            <StatCounters />
+            {/* calculado no servidor: o cliente recebe o número pronto e não
+                há como o HTML e a hidratação discordarem */}
+            <StatCounters stats={buildStats()} />
         </section>
     );
 }

@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import Odometer from "./Odometer";
 import { gsap, useGSAP, onMotion } from "@/lib/gsap";
-import { stats } from "@/data/stats";
+import { Stat } from "@/data/stats";
 
 /**
  * A fita tem 20 dígitos (dois ciclos de 0-9) e cada dígito ocupa 5% da altura
@@ -12,7 +12,11 @@ import { stats } from "@/data/stats";
 const restingY = (_: number, target: Element) =>
     -(10 + Number((target as HTMLElement).dataset.digit ?? 0)) * 5;
 
-export default function StatCounters() {
+interface StatCountersProps {
+    stats: Stat[];
+}
+
+export default function StatCounters({ stats }: StatCountersProps) {
     const scope = useRef<HTMLDivElement>(null);
 
     useGSAP(

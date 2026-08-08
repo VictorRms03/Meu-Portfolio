@@ -5,14 +5,18 @@ import Reveal from "@/components/motion/Reveal";
 import SplitHeading from "@/components/motion/SplitHeading";
 import ScrollHighlightText from "@/components/motion/ScrollHighlightText";
 import ActionButton from "@/components/ui/ActionButton";
-
-const quickFacts = [
-    "22 anos",
-    "Desenvolvedor Full-Stack",
-    "Bacharel em Ciência da Computação",
-];
+import { currentAge } from "@/data/profile";
 
 export default function About() {
+    // server component: a idade é resolvida no servidor e chega pronta
+    const age = currentAge();
+
+    const quickFacts = [
+        `${age} anos`,
+        "Desenvolvedor Full-Stack",
+        "Bacharel em Ciência da Computação",
+    ];
+
     return (
         <section id="sobre" className="py-28 md:py-36">
             <Container className="max-w-11/12 md:max-w-9/12 px-6">
@@ -40,7 +44,7 @@ export default function About() {
                         </Reveal>
 
                         <ScrollHighlightText className="mt-8">
-                            Olá! Tenho 22 anos e programo desde os 14 quando
+                            Olá! Tenho {age} anos e programo desde os 14 quando
                             entrei para o curso técnico em informática, desde
                             então venho estudo e me apaixonando cada vez mais
                             pela área da tecnologia. Sou formado como Bacharel
